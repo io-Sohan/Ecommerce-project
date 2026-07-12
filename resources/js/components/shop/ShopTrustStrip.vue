@@ -1,0 +1,121 @@
+<template>
+    <section
+        class="bg-white"
+        aria-label="Why shop with us"
+    >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div
+                class="grid grid-cols-2 gap-4 py-8 md:grid-cols-4 md:gap-6 md:py-10"
+            >
+                <div class="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-shop-primary-50 to-purple-50 p-4">
+                    <span
+                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-shop-primary-600 to-purple-600 text-white shadow-lg shadow-shop-primary-600/20"
+                    >
+                        <svg
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M9 17a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0zM13 16V6a1 1 0 00-1-1H3m10 11h2.5a1 1 0 001-.7l1.4-4.2a1 1 0 00-.95-1.3H13"
+                            />
+                        </svg>
+                    </span>
+                    <div>
+                        <p class="text-sm font-bold text-gray-900">
+                            Nationwide Delivery
+                        </p>
+                        <p class="mt-0.5 text-xs text-gray-500">
+                            Inside &amp; outside Dhaka
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 p-4">
+                    <span
+                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 text-white shadow-lg shadow-green-500/20"
+                    >
+                        <svg
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 12v-2m0-6c1.11 0 2.08.402 2.599 1M12 18c-1.11 0-2.08-.402-2.599-1"
+                            />
+                        </svg>
+                    </span>
+                    <div>
+                        <p class="text-sm font-bold text-gray-900">
+                            Cash on Delivery
+                        </p>
+                        <p class="mt-0.5 text-xs text-gray-500">
+                            Pay when you receive
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 p-4">
+                    <span
+                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/20"
+                    >
+                        <svg
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                            />
+                        </svg>
+                    </span>
+                    <div>
+                        <p class="text-sm font-bold text-gray-900">
+                            Secure Payment
+                        </p>
+                        <p class="mt-0.5 text-xs text-gray-500">
+                            SSL protected checkout
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-4">
+                    <span
+                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/20"
+                    >
+                        <svg
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                            />
+                        </svg>
+                    </span>
+                    <div>
+                        <p class="text-sm font-bold text-gray-900">
+                            Genuine Products
+                        </p>
+                        <p class="mt-0.5 text-xs text-gray-500">
+                            Quality guaranteed
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
