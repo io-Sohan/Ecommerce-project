@@ -37,10 +37,7 @@ export function useShopCarousel(slideCount: number) {
         return event.changedTouches[0].screenX;
     }
 
-    function handleTouchEnd(
-        event: TouchEvent,
-        touchStartX: number,
-    ): void {
+    function handleTouchEnd(event: TouchEvent, touchStartX: number): void {
         const delta = event.changedTouches[0].screenX - touchStartX;
 
         if (Math.abs(delta) > 40) {

@@ -75,11 +75,7 @@ function setImageSource(source: CategoryFormData['image_source']): void {
 
         <div class="grid gap-2">
             <Label for="slug">Slug</Label>
-            <Input
-                id="slug"
-                v-model="form.slug"
-                placeholder="category-slug"
-            />
+            <Input id="slug" v-model="form.slug" placeholder="category-slug" />
             <p class="text-xs text-muted-foreground">
                 Leave blank to generate from the name.
             </p>

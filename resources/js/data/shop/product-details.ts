@@ -59,7 +59,7 @@ export const productDetails: Record<string, ShopProductDetail> = {
             'Premium wireless noise-cancelling headphones with up to 40 hours of battery life and all-day comfort. Full details in the description below.',
         description: [
             'The ShopEase Wireless Noise-Cancelling Headphones are engineered for listeners who refuse to compromise. Advanced hybrid active noise cancellation silences the world around you, while custom 40mm drivers deliver deep, balanced sound across every genre.',
-            'Designed for all-day comfort, the breathable memory-foam ear cushions and lightweight headband let you wear them from your morning commute to late-night sessions. With up to 40 hours of playback and fast charging — 10 minutes gives you 5 hours — you\'ll rarely reach for the cable.',
+            "Designed for all-day comfort, the breathable memory-foam ear cushions and lightweight headband let you wear them from your morning commute to late-night sessions. With up to 40 hours of playback and fast charging — 10 minutes gives you 5 hours — you'll rarely reach for the cable.",
         ],
         features: [
             'Hybrid Active Noise Cancellation (ANC) with transparency mode',

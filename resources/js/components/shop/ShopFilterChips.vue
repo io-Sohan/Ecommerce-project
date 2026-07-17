@@ -5,10 +5,7 @@ const { activeFilters, removeFilter } = useShopCatalog();
 </script>
 
 <template>
-    <div
-        v-if="activeFilters.length > 0"
-        class="mb-5 flex flex-wrap gap-2"
-    >
+    <div v-if="activeFilters.length > 0" class="mb-5 flex flex-wrap gap-2">
         <button
             v-for="(filter, index) in activeFilters"
             :key="`${filter.label}-${index}`"

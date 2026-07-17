@@ -42,10 +42,10 @@ defineOptions({
 <template>
     <Head title="Categories" />
 
-    <div
-        class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6"
-    >
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6">
+        <div
+            class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        >
             <Heading
                 title="Categories"
                 description="Manage product categories for your store"
@@ -66,13 +66,39 @@ defineOptions({
                 <table class="w-full min-w-[960px] text-sm">
                     <thead class="border-b bg-muted/30 text-left">
                         <tr>
-                            <th class="px-5 py-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">Image</th>
-                            <th class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">Name</th>
-                            <th class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">Slug</th>
-                            <th class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">Products</th>
-                            <th class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">Sort</th>
-                            <th class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">Status</th>
-                            <th class="px-4 py-3 text-right text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                            <th
+                                class="px-5 py-3 text-xs font-medium tracking-wide text-muted-foreground uppercase"
+                            >
+                                Image
+                            </th>
+                            <th
+                                class="px-4 py-3 text-xs font-medium tracking-wide text-muted-foreground uppercase"
+                            >
+                                Name
+                            </th>
+                            <th
+                                class="px-4 py-3 text-xs font-medium tracking-wide text-muted-foreground uppercase"
+                            >
+                                Slug
+                            </th>
+                            <th
+                                class="px-4 py-3 text-xs font-medium tracking-wide text-muted-foreground uppercase"
+                            >
+                                Products
+                            </th>
+                            <th
+                                class="px-4 py-3 text-xs font-medium tracking-wide text-muted-foreground uppercase"
+                            >
+                                Sort
+                            </th>
+                            <th
+                                class="px-4 py-3 text-xs font-medium tracking-wide text-muted-foreground uppercase"
+                            >
+                                Status
+                            </th>
+                            <th
+                                class="px-4 py-3 text-right text-xs font-medium tracking-wide text-muted-foreground uppercase"
+                            >
                                 Actions
                             </th>
                         </tr>
@@ -81,7 +107,7 @@ defineOptions({
                         <tr
                             v-for="category in categories"
                             :key="category.id"
-                            class="border-b border-border/30 last:border-b-0 transition-colors hover:bg-muted/20"
+                            class="border-b border-border/30 transition-colors last:border-b-0 hover:bg-muted/20"
                         >
                             <td class="px-5 py-3.5">
                                 <div

@@ -66,10 +66,7 @@ function handleAddAllToCart(): void {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ShopPageBreadcrumb :items="[{ label: 'Wishlist' }]" />
 
-            <div
-                v-if="!isAuthenticated"
-                class="py-16 text-center"
-            >
+            <div v-if="!isAuthenticated" class="py-16 text-center">
                 <div
                     class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-red-50 text-red-400"
                 >
@@ -107,7 +104,9 @@ function handleAddAllToCart(): void {
                     class="mb-6 flex flex-wrap items-center justify-between gap-3"
                 >
                     <div>
-                        <h1 class="text-2xl font-bold text-gray-900 md:text-3xl">
+                        <h1
+                            class="text-2xl font-bold text-gray-900 md:text-3xl"
+                        >
                             My Wishlist
                         </h1>
                         <p class="mt-1 text-sm text-gray-500">

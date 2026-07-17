@@ -47,7 +47,9 @@ const quantity = ref(1);
                 :product-name="product.name"
             />
 
-            <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 md:py-14 lg:px-8">
+            <section
+                class="mx-auto max-w-7xl px-4 py-8 sm:px-6 md:py-14 lg:px-8"
+            >
                 <div
                     class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start lg:gap-12"
                 >
@@ -69,9 +71,6 @@ const quantity = ref(1);
             />
         </div>
 
-        <ShopMobileProductBar
-            :product="product"
-            v-model:quantity="quantity"
-        />
+        <ShopMobileProductBar :product="product" v-model:quantity="quantity" />
     </template>
 </template>

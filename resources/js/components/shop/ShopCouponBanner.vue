@@ -36,7 +36,8 @@ function nextCoupon(): void {
 function prevCoupon(): void {
     if (coupons.value.length > 1) {
         currentIndex.value =
-            (currentIndex.value - 1 + coupons.value.length) % coupons.value.length;
+            (currentIndex.value - 1 + coupons.value.length) %
+            coupons.value.length;
     }
 }
 
@@ -50,7 +51,9 @@ function copyCode(code: string): void {
         v-if="coupons.length > 0 && !dismissed"
         class="relative bg-shop-primary-600 text-white"
     >
-        <div class="mx-auto flex max-w-7xl items-center justify-center gap-3 px-4 py-2.5 text-center text-sm sm:px-6">
+        <div
+            class="mx-auto flex max-w-7xl items-center justify-center gap-3 px-4 py-2.5 text-center text-sm sm:px-6"
+        >
             <button
                 v-if="coupons.length > 1"
                 type="button"
@@ -58,13 +61,28 @@ function copyCode(code: string): void {
                 class="shrink-0 rounded p-0.5 transition hover:bg-white/20"
                 @click="prevCoupon"
             >
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                <svg
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 19l-7-7 7-7"
+                    />
                 </svg>
             </button>
 
-            <div v-if="currentCoupon" class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
-                <span class="font-semibold">🎉 {{ formatDiscount(currentCoupon) }}</span>
+            <div
+                v-if="currentCoupon"
+                class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1"
+            >
+                <span class="font-semibold"
+                    >🎉 {{ formatDiscount(currentCoupon) }}</span
+                >
                 <span class="hidden sm:inline">—</span>
                 <span class="text-white/90">
                     Use code
@@ -75,8 +93,18 @@ function copyCode(code: string): void {
                         @click="copyCode(currentCoupon.code)"
                     >
                         {{ currentCoupon.code }}
-                        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        <svg
+                            class="h-3.5 w-3.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                            />
                         </svg>
                     </button>
                     at checkout
@@ -96,8 +124,18 @@ function copyCode(code: string): void {
                 class="shrink-0 rounded p-0.5 transition hover:bg-white/20"
                 @click="nextCoupon"
             >
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                <svg
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 5l7 7-7 7"
+                    />
                 </svg>
             </button>
         </div>
@@ -108,8 +146,18 @@ function copyCode(code: string): void {
             class="absolute top-1/2 right-3 -translate-y-1/2 rounded p-1 transition hover:bg-white/20"
             @click="dismissed = true"
         >
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                />
             </svg>
         </button>
     </div>

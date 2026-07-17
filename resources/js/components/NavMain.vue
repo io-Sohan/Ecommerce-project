@@ -20,7 +20,7 @@ const { isCurrentUrl } = useCurrentUrl();
 <template>
     <SidebarGroup class="px-2 py-0">
         <SidebarGroupLabel
-            class="mb-1 text-[10px] font-semibold uppercase tracking-widest text-sidebar-foreground/40"
+            class="mb-1 text-[10px] font-semibold tracking-widest text-sidebar-foreground/40 uppercase"
         >
             Navigation
         </SidebarGroupLabel>

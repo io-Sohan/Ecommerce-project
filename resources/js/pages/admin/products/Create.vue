@@ -49,15 +49,13 @@ const form = useForm<ProductFormData>({
 });
 
 function submit(): void {
-    form
-        .transform((data) => ({
-            ...data,
-            images: serializeProductImagesForSubmit(data.images),
-        }))
-        .post(ProductController.store.url(), {
-            forceFormData: true,
-            preserveScroll: true,
-        });
+    form.transform((data) => ({
+        ...data,
+        images: serializeProductImagesForSubmit(data.images),
+    })).post(ProductController.store.url(), {
+        forceFormData: true,
+        preserveScroll: true,
+    });
 }
 </script>
 

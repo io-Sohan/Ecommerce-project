@@ -49,11 +49,7 @@ export function useShopCart() {
      * Add a product to the cart by its database ID.
      * Opens the cart drawer by default.
      */
-    function addToCart(
-        productId: number,
-        qty = 1,
-        openDrawer = true,
-    ): void {
+    function addToCart(productId: number, qty = 1, openDrawer = true): void {
         router.post(
             '/cart',
             { product_id: productId, qty },

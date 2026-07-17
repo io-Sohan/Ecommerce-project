@@ -7,14 +7,8 @@ import { useShopCart } from '@/composables/shop/useShopCart';
 import { useShopUi } from '@/composables/shop/useShopUi';
 import shop from '@/routes/shop';
 
-const {
-    cart,
-    cartQty,
-    cartSubtotal,
-    updateQty,
-    removeItem,
-    clearCart,
-} = useShopCart();
+const { cart, cartQty, cartSubtotal, updateQty, removeItem, clearCart } =
+    useShopCart();
 const { showToast } = useShopUi();
 
 function handleIncrement(productId: number): void {
@@ -64,7 +58,9 @@ function handleClearCart(): void {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ShopPageBreadcrumb :items="[{ label: 'Cart' }]" />
 
-            <h1 class="mb-8 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
+            <h1
+                class="mb-8 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl"
+            >
                 Shopping Cart
             </h1>
 
@@ -81,9 +77,7 @@ function handleClearCart(): void {
                         >
                             <span class="col-span-6">Product</span>
                             <span class="col-span-2 text-center">Price</span>
-                            <span class="col-span-2 text-center"
-                                >Quantity</span
-                            >
+                            <span class="col-span-2 text-center">Quantity</span>
                             <span class="col-span-2 text-right">Total</span>
                         </div>
                         <ul class="divide-y divide-gray-100">
@@ -140,7 +134,7 @@ function handleClearCart(): void {
                 class="rounded-2xl bg-white py-20 text-center shadow-sm ring-1 ring-gray-200/80"
             >
                 <div
-                    class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-shop-primary-50 to-purple-50 text-shop-primary-400"
+                    class="text-shop-primary-400 mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-shop-primary-50 to-purple-50"
                 >
                     <svg
                         class="h-10 w-10"

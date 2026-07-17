@@ -158,7 +158,10 @@ function stepClasses(step: OrderStatus): string {
 }
 
 function timelineIconClasses(status: string): string {
-    return TIMELINE_ICON_COLORS[status] ?? 'bg-muted border-border text-muted-foreground';
+    return (
+        TIMELINE_ICON_COLORS[status] ??
+        'bg-muted border-border text-muted-foreground'
+    );
 }
 
 function statusBadgeClasses(status: string): string {
@@ -209,9 +212,13 @@ function printInvoice(): void {
         class="flex h-full flex-1 flex-col gap-6 rounded-xl p-4"
     >
         <!-- Header bar -->
-        <div class="flex flex-col gap-4 rounded-2xl bg-gradient-to-r from-violet-600 via-blue-600 to-indigo-600 p-5 text-white shadow-md sm:flex-row sm:items-start sm:justify-between">
+        <div
+            class="flex flex-col gap-4 rounded-2xl bg-gradient-to-r from-violet-600 via-blue-600 to-indigo-600 p-5 text-white shadow-md sm:flex-row sm:items-start sm:justify-between"
+        >
             <div>
-                <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-violet-200">
+                <p
+                    class="mb-1 text-xs font-semibold tracking-widest text-violet-200 uppercase"
+                >
                     Order
                 </p>
                 <h1 class="text-2xl font-bold tracking-tight">
@@ -226,21 +233,32 @@ function printInvoice(): void {
                 <span
                     class="rounded-full px-3 py-1 text-xs font-semibold capitalize"
                     :class="statusBadgeClasses(order.status)"
-                    style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3)"
+                    style="
+                        background: rgba(255, 255, 255, 0.15);
+                        color: white;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                    "
                 >
                     {{ order.status }}
                 </span>
                 <span
                     class="rounded-full px-3 py-1 text-xs font-semibold capitalize"
-                    style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3)"
+                    style="
+                        background: rgba(255, 255, 255, 0.15);
+                        color: white;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                    "
                 >
                     {{ order.payment_status }}
                 </span>
-                <Separator orientation="vertical" class="mx-1 h-6 bg-white/30" />
+                <Separator
+                    orientation="vertical"
+                    class="mx-1 h-6 bg-white/30"
+                />
                 <Button
                     variant="secondary"
                     size="sm"
-                    class="bg-white/20 text-white hover:bg-white/30 border-white/30"
+                    class="border-white/30 bg-white/20 text-white hover:bg-white/30"
                     @click="printInvoice"
                 >
                     <Printer class="size-4" />
@@ -249,7 +267,7 @@ function printInvoice(): void {
                 <Button
                     variant="secondary"
                     size="sm"
-                    class="bg-white/20 text-white hover:bg-white/30 border-white/30"
+                    class="border-white/30 bg-white/20 text-white hover:bg-white/30"
                     @click="printInvoice"
                 >
                     <Download class="size-4" />
@@ -259,7 +277,10 @@ function printInvoice(): void {
         </div>
 
         <!-- Fulfillment stepper -->
-        <Card v-if="order.status !== 'cancelled'" class="border-none shadow-sm bg-gradient-to-br from-slate-50 to-white dark:from-slate-900/40 dark:to-background">
+        <Card
+            v-if="order.status !== 'cancelled'"
+            class="border-none bg-gradient-to-br from-slate-50 to-white shadow-sm dark:from-slate-900/40 dark:to-background"
+        >
             <CardContent class="pt-6 pb-5">
                 <div class="relative flex items-start justify-between">
                     <!-- Background connector -->
@@ -278,7 +299,10 @@ function printInvoice(): void {
                                 stepClasses(step),
                             ]"
                         >
-                            <component :is="STEP_CONFIG[step].icon" class="size-4" />
+                            <component
+                                :is="STEP_CONFIG[step].icon"
+                                class="size-4"
+                            />
                         </div>
                         <span
                             :class="[
@@ -302,8 +326,9 @@ function printInvoice(): void {
         >
             <XCircle class="size-5 shrink-0 text-red-500" />
             <p>
-                This order has been <strong>cancelled</strong>.
-                Payment status: <strong class="capitalize">{{ order.payment_status }}</strong>.
+                This order has been <strong>cancelled</strong>. Payment status:
+                <strong class="capitalize">{{ order.payment_status }}</strong
+                >.
             </p>
         </div>
 
@@ -313,55 +338,127 @@ function printInvoice(): void {
             <div class="grid auto-rows-min gap-6">
                 <!-- Line items -->
                 <Card class="overflow-hidden border-none shadow-sm">
-                    <CardHeader class="bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/30 border-b">
-                        <CardTitle class="flex items-center gap-2 text-indigo-700 dark:text-indigo-400">
-                            <div class="flex size-7 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/50">
-                                <Package class="size-4 text-indigo-600 dark:text-indigo-400" />
+                    <CardHeader
+                        class="border-b bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/30"
+                    >
+                        <CardTitle
+                            class="flex items-center gap-2 text-indigo-700 dark:text-indigo-400"
+                        >
+                            <div
+                                class="flex size-7 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/50"
+                            >
+                                <Package
+                                    class="size-4 text-indigo-600 dark:text-indigo-400"
+                                />
                             </div>
                             Line items
                         </CardTitle>
                         <CardDescription>
-                            {{ order.items_count }} {{ order.items_count === 1 ? 'item' : 'items' }} in this order
+                            {{ order.items_count }}
+                            {{ order.items_count === 1 ? 'item' : 'items' }} in
+                            this order
                         </CardDescription>
                     </CardHeader>
                     <CardContent class="p-0">
                         <table class="w-full min-w-[540px] text-sm">
                             <thead class="bg-indigo-600 text-white">
                                 <tr>
-                                    <th class="px-5 py-3 text-left font-semibold text-indigo-100 text-xs uppercase tracking-wide">Product</th>
-                                    <th class="px-4 py-3 text-center font-semibold text-indigo-100 text-xs uppercase tracking-wide">Qty</th>
-                                    <th class="px-4 py-3 text-right font-semibold text-indigo-100 text-xs uppercase tracking-wide">Unit price</th>
-                                    <th class="px-5 py-3 text-right font-semibold text-indigo-100 text-xs uppercase tracking-wide">Total</th>
+                                    <th
+                                        class="px-5 py-3 text-left text-xs font-semibold tracking-wide text-indigo-100 uppercase"
+                                    >
+                                        Product
+                                    </th>
+                                    <th
+                                        class="px-4 py-3 text-center text-xs font-semibold tracking-wide text-indigo-100 uppercase"
+                                    >
+                                        Qty
+                                    </th>
+                                    <th
+                                        class="px-4 py-3 text-right text-xs font-semibold tracking-wide text-indigo-100 uppercase"
+                                    >
+                                        Unit price
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 text-right text-xs font-semibold tracking-wide text-indigo-100 uppercase"
+                                    >
+                                        Total
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr
                                     v-for="(item, i) in order.items"
                                     :key="item.id"
-                                    :class="['border-b last:border-b-0', i % 2 === 0 ? 'bg-white dark:bg-background' : 'bg-indigo-50/40 dark:bg-indigo-950/10']"
+                                    :class="[
+                                        'border-b last:border-b-0',
+                                        i % 2 === 0
+                                            ? 'bg-white dark:bg-background'
+                                            : 'bg-indigo-50/40 dark:bg-indigo-950/10',
+                                    ]"
                                 >
-                                    <td class="px-5 py-4 font-medium">{{ item.product_name }}</td>
+                                    <td class="px-5 py-4 font-medium">
+                                        {{ item.product_name }}
+                                    </td>
                                     <td class="px-4 py-4 text-center">
-                                        <span class="inline-flex size-7 items-center justify-center rounded-full bg-indigo-100 text-xs font-bold text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300">
+                                        <span
+                                            class="inline-flex size-7 items-center justify-center rounded-full bg-indigo-100 text-xs font-bold text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300"
+                                        >
                                             {{ item.quantity }}
                                         </span>
                                     </td>
-                                    <td class="px-4 py-4 text-right text-muted-foreground">{{ formatTaka(item.unit_price) }}</td>
-                                    <td class="px-5 py-4 text-right font-semibold">{{ formatTaka(item.line_total) }}</td>
+                                    <td
+                                        class="px-4 py-4 text-right text-muted-foreground"
+                                    >
+                                        {{ formatTaka(item.unit_price) }}
+                                    </td>
+                                    <td
+                                        class="px-5 py-4 text-right font-semibold"
+                                    >
+                                        {{ formatTaka(item.line_total) }}
+                                    </td>
                                 </tr>
                             </tbody>
                             <tfoot>
-                                <tr class="border-t bg-slate-50 dark:bg-slate-900/30">
-                                    <td colspan="3" class="px-5 py-2.5 text-right text-xs text-muted-foreground">Subtotal</td>
-                                    <td class="px-5 py-2.5 text-right text-sm font-medium">{{ formatTaka(order.subtotal) }}</td>
+                                <tr
+                                    class="border-t bg-slate-50 dark:bg-slate-900/30"
+                                >
+                                    <td
+                                        colspan="3"
+                                        class="px-5 py-2.5 text-right text-xs text-muted-foreground"
+                                    >
+                                        Subtotal
+                                    </td>
+                                    <td
+                                        class="px-5 py-2.5 text-right text-sm font-medium"
+                                    >
+                                        {{ formatTaka(order.subtotal) }}
+                                    </td>
                                 </tr>
                                 <tr class="bg-slate-50 dark:bg-slate-900/30">
-                                    <td colspan="3" class="px-5 py-2.5 text-right text-xs text-muted-foreground">Delivery charge</td>
-                                    <td class="px-5 py-2.5 text-right text-sm font-medium">{{ formatTaka(order.delivery_charge) }}</td>
+                                    <td
+                                        colspan="3"
+                                        class="px-5 py-2.5 text-right text-xs text-muted-foreground"
+                                    >
+                                        Delivery charge
+                                    </td>
+                                    <td
+                                        class="px-5 py-2.5 text-right text-sm font-medium"
+                                    >
+                                        {{ formatTaka(order.delivery_charge) }}
+                                    </td>
                                 </tr>
                                 <tr class="bg-indigo-600">
-                                    <td colspan="3" class="px-5 py-3.5 text-right text-sm font-bold text-indigo-100">Order total</td>
-                                    <td class="px-5 py-3.5 text-right text-base font-extrabold text-white">{{ formatTaka(order.total) }}</td>
+                                    <td
+                                        colspan="3"
+                                        class="px-5 py-3.5 text-right text-sm font-bold text-indigo-100"
+                                    >
+                                        Order total
+                                    </td>
+                                    <td
+                                        class="px-5 py-3.5 text-right text-base font-extrabold text-white"
+                                    >
+                                        {{ formatTaka(order.total) }}
+                                    </td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -370,17 +467,31 @@ function printInvoice(): void {
 
                 <!-- Status timeline -->
                 <Card class="border-none shadow-sm">
-                    <CardHeader class="bg-gradient-to-r from-violet-50 to-purple-50 dark:from-violet-950/30 dark:to-purple-950/30 border-b">
-                        <CardTitle class="flex items-center gap-2 text-violet-700 dark:text-violet-400">
-                            <div class="flex size-7 items-center justify-center rounded-lg bg-violet-100 dark:bg-violet-900/50">
-                                <Clock class="size-4 text-violet-600 dark:text-violet-400" />
+                    <CardHeader
+                        class="border-b bg-gradient-to-r from-violet-50 to-purple-50 dark:from-violet-950/30 dark:to-purple-950/30"
+                    >
+                        <CardTitle
+                            class="flex items-center gap-2 text-violet-700 dark:text-violet-400"
+                        >
+                            <div
+                                class="flex size-7 items-center justify-center rounded-lg bg-violet-100 dark:bg-violet-900/50"
+                            >
+                                <Clock
+                                    class="size-4 text-violet-600 dark:text-violet-400"
+                                />
                             </div>
                             Status history
                         </CardTitle>
-                        <CardDescription>Chronological log of all status changes</CardDescription>
+                        <CardDescription
+                            >Chronological log of all status
+                            changes</CardDescription
+                        >
                     </CardHeader>
                     <CardContent class="pt-6">
-                        <div v-if="order.status_histories.length > 0" class="relative">
+                        <div
+                            v-if="order.status_histories.length > 0"
+                            class="relative"
+                        >
                             <div
                                 class="absolute top-5 bottom-5 left-[19px] w-0.5 bg-gradient-to-b from-violet-300 via-blue-200 to-transparent"
                                 aria-hidden="true"
@@ -393,26 +504,56 @@ function printInvoice(): void {
                                 <div
                                     :class="[
                                         'relative z-10 mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full border-2 transition-colors',
-                                        i === 0 ? timelineIconClasses(history.status) : 'bg-muted/50 border-border text-muted-foreground',
+                                        i === 0
+                                            ? timelineIconClasses(
+                                                  history.status,
+                                              )
+                                            : 'border-border bg-muted/50 text-muted-foreground',
                                     ]"
                                 >
-                                    <component :is="STEP_CONFIG[history.status]?.icon ?? Clock" class="size-4" />
+                                    <component
+                                        :is="
+                                            STEP_CONFIG[history.status]?.icon ??
+                                            Clock
+                                        "
+                                        class="size-4"
+                                    />
                                 </div>
                                 <div class="flex flex-1 flex-col gap-1 pt-1.5">
-                                    <div class="flex flex-wrap items-center gap-2">
+                                    <div
+                                        class="flex flex-wrap items-center gap-2"
+                                    >
                                         <span
-                                            :class="['rounded-full px-2.5 py-0.5 text-xs font-semibold capitalize', statusBadgeClasses(history.status)]"
+                                            :class="[
+                                                'rounded-full px-2.5 py-0.5 text-xs font-semibold capitalize',
+                                                statusBadgeClasses(
+                                                    history.status,
+                                                ),
+                                            ]"
                                         >
                                             {{ history.status }}
                                         </span>
-                                        <span class="text-xs text-muted-foreground">
+                                        <span
+                                            class="text-xs text-muted-foreground"
+                                        >
                                             {{ formatDate(history.created_at) }}
                                         </span>
                                     </div>
-                                    <p v-if="history.note" class="text-sm leading-relaxed">{{ history.note }}</p>
-                                    <p v-if="history.changed_by" class="text-xs text-muted-foreground">
+                                    <p
+                                        v-if="history.note"
+                                        class="text-sm leading-relaxed"
+                                    >
+                                        {{ history.note }}
+                                    </p>
+                                    <p
+                                        v-if="history.changed_by"
+                                        class="text-xs text-muted-foreground"
+                                    >
                                         Updated by
-                                        <span class="font-medium text-foreground">{{ history.changed_by.name }}</span>
+                                        <span
+                                            class="font-medium text-foreground"
+                                            >{{ history.changed_by.name }}</span
+                                        >
                                     </p>
                                 </div>
                             </div>
@@ -427,37 +568,61 @@ function printInvoice(): void {
             <!-- Right column -->
             <div class="grid auto-rows-min gap-6">
                 <!-- Customer -->
-                <Card class="border-none shadow-sm overflow-hidden">
-                    <CardHeader class="bg-gradient-to-r from-sky-50 to-cyan-50 dark:from-sky-950/30 dark:to-cyan-950/30 border-b">
-                        <CardTitle class="flex items-center gap-2 text-sky-700 dark:text-sky-400">
-                            <div class="flex size-7 items-center justify-center rounded-lg bg-sky-100 dark:bg-sky-900/50">
-                                <User class="size-4 text-sky-600 dark:text-sky-400" />
+                <Card class="overflow-hidden border-none shadow-sm">
+                    <CardHeader
+                        class="border-b bg-gradient-to-r from-sky-50 to-cyan-50 dark:from-sky-950/30 dark:to-cyan-950/30"
+                    >
+                        <CardTitle
+                            class="flex items-center gap-2 text-sky-700 dark:text-sky-400"
+                        >
+                            <div
+                                class="flex size-7 items-center justify-center rounded-lg bg-sky-100 dark:bg-sky-900/50"
+                            >
+                                <User
+                                    class="size-4 text-sky-600 dark:text-sky-400"
+                                />
                             </div>
                             Customer
                         </CardTitle>
                     </CardHeader>
                     <CardContent class="grid gap-4 pt-5 text-sm">
                         <div class="flex items-center gap-3">
-                            <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-sky-400 to-cyan-500 text-white shadow-sm">
+                            <div
+                                class="flex size-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-sky-400 to-cyan-500 text-white shadow-sm"
+                            >
                                 <User class="size-4" />
                             </div>
                             <div>
-                                <p class="font-semibold">{{ order.customer_name }}</p>
+                                <p class="font-semibold">
+                                    {{ order.customer_name }}
+                                </p>
                                 <p class="text-xs text-muted-foreground">
-                                    {{ order.customer ? 'Registered account' : 'Guest checkout' }}
+                                    {{
+                                        order.customer
+                                            ? 'Registered account'
+                                            : 'Guest checkout'
+                                    }}
                                 </p>
                             </div>
                         </div>
                         <Separator />
                         <div class="flex items-center gap-3">
-                            <div class="flex size-7 shrink-0 items-center justify-center rounded-md bg-sky-100 dark:bg-sky-900/40">
-                                <Phone class="size-3.5 text-sky-600 dark:text-sky-400" />
+                            <div
+                                class="flex size-7 shrink-0 items-center justify-center rounded-md bg-sky-100 dark:bg-sky-900/40"
+                            >
+                                <Phone
+                                    class="size-3.5 text-sky-600 dark:text-sky-400"
+                                />
                             </div>
                             <span>{{ order.phone }}</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <div class="flex size-7 shrink-0 items-center justify-center rounded-md bg-sky-100 dark:bg-sky-900/40">
-                                <Mail class="size-3.5 text-sky-600 dark:text-sky-400" />
+                            <div
+                                class="flex size-7 shrink-0 items-center justify-center rounded-md bg-sky-100 dark:bg-sky-900/40"
+                            >
+                                <Mail
+                                    class="size-3.5 text-sky-600 dark:text-sky-400"
+                                />
                             </div>
                             <span class="break-all">{{ order.email }}</span>
                         </div>
@@ -465,18 +630,28 @@ function printInvoice(): void {
                 </Card>
 
                 <!-- Shipping -->
-                <Card class="border-none shadow-sm overflow-hidden">
-                    <CardHeader class="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/30 border-b">
-                        <CardTitle class="flex items-center gap-2 text-orange-700 dark:text-orange-400">
-                            <div class="flex size-7 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/50">
-                                <MapPin class="size-4 text-orange-600 dark:text-orange-400" />
+                <Card class="overflow-hidden border-none shadow-sm">
+                    <CardHeader
+                        class="border-b bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/30"
+                    >
+                        <CardTitle
+                            class="flex items-center gap-2 text-orange-700 dark:text-orange-400"
+                        >
+                            <div
+                                class="flex size-7 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/50"
+                            >
+                                <MapPin
+                                    class="size-4 text-orange-600 dark:text-orange-400"
+                                />
                             </div>
                             Shipping address
                         </CardTitle>
                     </CardHeader>
                     <CardContent class="grid gap-3 pt-5 text-sm">
-                        <div class="rounded-xl bg-orange-50/60 p-4 dark:bg-orange-950/20">
-                            <p class="font-semibold leading-relaxed">
+                        <div
+                            class="rounded-xl bg-orange-50/60 p-4 dark:bg-orange-950/20"
+                        >
+                            <p class="leading-relaxed font-semibold">
                                 {{ order.address }},<br />
                                 {{ order.area }}, {{ order.district }}
                             </p>
@@ -485,7 +660,9 @@ function printInvoice(): void {
                             v-if="order.notes"
                             class="rounded-xl border border-amber-200 bg-amber-50 p-3 dark:border-amber-900/40 dark:bg-amber-950/20"
                         >
-                            <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400">
+                            <p
+                                class="mb-1 text-xs font-semibold tracking-wide text-amber-700 uppercase dark:text-amber-400"
+                            >
                                 Delivery note
                             </p>
                             <p class="text-sm">{{ order.notes }}</p>
@@ -494,11 +671,19 @@ function printInvoice(): void {
                 </Card>
 
                 <!-- Payment summary -->
-                <Card class="border-none shadow-sm overflow-hidden">
-                    <CardHeader class="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 border-b">
-                        <CardTitle class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
-                            <div class="flex size-7 items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-900/50">
-                                <Package class="size-4 text-emerald-600 dark:text-emerald-400" />
+                <Card class="overflow-hidden border-none shadow-sm">
+                    <CardHeader
+                        class="border-b bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30"
+                    >
+                        <CardTitle
+                            class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400"
+                        >
+                            <div
+                                class="flex size-7 items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-900/50"
+                            >
+                                <Package
+                                    class="size-4 text-emerald-600 dark:text-emerald-400"
+                                />
                             </div>
                             Payment summary
                         </CardTitle>
@@ -506,12 +691,19 @@ function printInvoice(): void {
                     <CardContent class="grid gap-3 pt-5 text-sm">
                         <div class="flex items-center justify-between">
                             <span class="text-muted-foreground">Method</span>
-                            <span class="font-medium">{{ paymentMethodLabel(order.payment_method) }}</span>
+                            <span class="font-medium">{{
+                                paymentMethodLabel(order.payment_method)
+                            }}</span>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span class="text-muted-foreground">Payment status</span>
+                            <span class="text-muted-foreground"
+                                >Payment status</span
+                            >
                             <span
-                                :class="['rounded-full px-2.5 py-0.5 text-xs font-semibold capitalize', paymentBadgeClasses(order.payment_status)]"
+                                :class="[
+                                    'rounded-full px-2.5 py-0.5 text-xs font-semibold capitalize',
+                                    paymentBadgeClasses(order.payment_status),
+                                ]"
                             >
                                 {{ order.payment_status }}
                             </span>
@@ -522,14 +714,22 @@ function printInvoice(): void {
                             <span>{{ formatTaka(order.subtotal) }}</span>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span class="text-muted-foreground">Delivery charge</span>
+                            <span class="text-muted-foreground"
+                                >Delivery charge</span
+                            >
                             <span>{{ formatTaka(order.delivery_charge) }}</span>
                         </div>
-                        <div class="flex items-center justify-between rounded-xl bg-emerald-600 px-4 py-3 text-white">
+                        <div
+                            class="flex items-center justify-between rounded-xl bg-emerald-600 px-4 py-3 text-white"
+                        >
                             <span class="font-semibold">Total</span>
-                            <span class="text-lg font-extrabold">{{ formatTaka(order.total) }}</span>
+                            <span class="text-lg font-extrabold">{{
+                                formatTaka(order.total)
+                            }}</span>
                         </div>
-                        <div class="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
+                        <div
+                            class="grid grid-cols-2 gap-2 text-xs text-muted-foreground"
+                        >
                             <div>
                                 <p class="mb-0.5 font-medium">Placed</p>
                                 <p>{{ formatDate(order.placed_at) }}</p>
@@ -543,15 +743,26 @@ function printInvoice(): void {
                 </Card>
 
                 <!-- Update order -->
-                <Card class="border-none shadow-sm overflow-hidden">
-                    <CardHeader class="bg-gradient-to-r from-violet-50 to-indigo-50 dark:from-violet-950/30 dark:to-indigo-950/30 border-b">
-                        <CardTitle class="flex items-center gap-2 text-violet-700 dark:text-violet-400">
-                            <div class="flex size-7 items-center justify-center rounded-lg bg-violet-100 dark:bg-violet-900/50">
-                                <RotateCcw class="size-4 text-violet-600 dark:text-violet-400" />
+                <Card class="overflow-hidden border-none shadow-sm">
+                    <CardHeader
+                        class="border-b bg-gradient-to-r from-violet-50 to-indigo-50 dark:from-violet-950/30 dark:to-indigo-950/30"
+                    >
+                        <CardTitle
+                            class="flex items-center gap-2 text-violet-700 dark:text-violet-400"
+                        >
+                            <div
+                                class="flex size-7 items-center justify-center rounded-lg bg-violet-100 dark:bg-violet-900/50"
+                            >
+                                <RotateCcw
+                                    class="size-4 text-violet-600 dark:text-violet-400"
+                                />
                             </div>
                             Update order
                         </CardTitle>
-                        <CardDescription>Change fulfillment or payment status</CardDescription>
+                        <CardDescription
+                            >Change fulfillment or payment
+                            status</CardDescription
+                        >
                     </CardHeader>
                     <CardContent class="pt-5">
                         <form @submit.prevent="submit">
@@ -585,19 +796,28 @@ function printInvoice(): void {
         <div class="invoice-meta-row">
             <div class="invoice-meta-item">
                 <span class="invoice-meta-label">Order Date</span>
-                <span class="invoice-meta-value">{{ formatDate(order.placed_at) }}</span>
+                <span class="invoice-meta-value">{{
+                    formatDate(order.placed_at)
+                }}</span>
             </div>
             <div class="invoice-meta-item">
                 <span class="invoice-meta-label">Payment Method</span>
-                <span class="invoice-meta-value">{{ paymentMethodLabel(order.payment_method) }}</span>
+                <span class="invoice-meta-value">{{
+                    paymentMethodLabel(order.payment_method)
+                }}</span>
             </div>
             <div class="invoice-meta-item">
                 <span class="invoice-meta-label">Order Status</span>
-                <span class="invoice-status-chip invoice-status-chip--order">{{ order.status }}</span>
+                <span class="invoice-status-chip invoice-status-chip--order">{{
+                    order.status
+                }}</span>
             </div>
             <div class="invoice-meta-item">
                 <span class="invoice-meta-label">Payment Status</span>
-                <span class="invoice-status-chip invoice-status-chip--payment">{{ order.payment_status }}</span>
+                <span
+                    class="invoice-status-chip invoice-status-chip--payment"
+                    >{{ order.payment_status }}</span
+                >
             </div>
         </div>
 
@@ -605,7 +825,9 @@ function printInvoice(): void {
         <div class="invoice-parties">
             <div class="invoice-party-box invoice-party-box--bill">
                 <h3>Bill To</h3>
-                <p><strong>{{ order.customer_name }}</strong></p>
+                <p>
+                    <strong>{{ order.customer_name }}</strong>
+                </p>
                 <p>{{ order.phone }}</p>
                 <p>{{ order.email }}</p>
             </div>
@@ -637,8 +859,12 @@ function printInvoice(): void {
                     <td>{{ idx + 1 }}</td>
                     <td>{{ item.product_name }}</td>
                     <td class="text-center">{{ item.quantity }}</td>
-                    <td class="text-right">{{ formatTaka(item.unit_price) }}</td>
-                    <td class="text-right">{{ formatTaka(item.line_total) }}</td>
+                    <td class="text-right">
+                        {{ formatTaka(item.unit_price) }}
+                    </td>
+                    <td class="text-right">
+                        {{ formatTaka(item.line_total) }}
+                    </td>
                 </tr>
             </tbody>
             <tfoot>
@@ -648,7 +874,9 @@ function printInvoice(): void {
                 </tr>
                 <tr class="invoice-subtotal-row">
                     <td colspan="4" class="text-right">Delivery Charge</td>
-                    <td class="text-right">{{ formatTaka(order.delivery_charge) }}</td>
+                    <td class="text-right">
+                        {{ formatTaka(order.delivery_charge) }}
+                    </td>
                 </tr>
                 <tr class="invoice-total-row">
                     <td colspan="4" class="text-right">Grand Total</td>
@@ -686,7 +914,12 @@ function printInvoice(): void {
 
     /* ── Header bar ─────────────────────────────────────────── */
     .invoice-header-bar {
-        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #2563eb 100%);
+        background: linear-gradient(
+            135deg,
+            #4f46e5 0%,
+            #7c3aed 50%,
+            #2563eb 100%
+        );
         color: white;
         padding: 28px 32px;
         display: flex;
@@ -707,7 +940,7 @@ function printInvoice(): void {
 
     .invoice-brand p {
         font-size: 12px;
-        color: rgba(255,255,255,0.75);
+        color: rgba(255, 255, 255, 0.75);
         margin: 0;
     }
 
@@ -720,7 +953,7 @@ function printInvoice(): void {
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 4px;
-        color: rgba(255,255,255,0.85);
+        color: rgba(255, 255, 255, 0.85);
         margin: 0 0 6px;
     }
 
@@ -728,7 +961,7 @@ function printInvoice(): void {
         font-size: 15px;
         font-weight: 700;
         color: white;
-        background: rgba(255,255,255,0.2);
+        background: rgba(255, 255, 255, 0.2);
         padding: 4px 12px;
         border-radius: 20px;
         letter-spacing: 1px;
@@ -900,9 +1133,15 @@ function printInvoice(): void {
         background: transparent;
     }
 
-    .text-left  { text-align: left; }
-    .text-center{ text-align: center; }
-    .text-right { text-align: right; }
+    .text-left {
+        text-align: left;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .text-right {
+        text-align: right;
+    }
 
     /* ── Footer bar ─────────────────────────────────────────── */
     .invoice-footer-bar {
@@ -920,7 +1159,7 @@ function printInvoice(): void {
 
     .invoice-footer-bar p {
         margin: 0;
-        color: rgba(255,255,255,0.9);
+        color: rgba(255, 255, 255, 0.9);
     }
 
     .invoice-footer-bar strong {

@@ -102,9 +102,7 @@ function breakdownPercent(count: number, total: number): number {
 <template>
     <Head title="Dashboard" />
 
-    <div
-        class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6"
-    >
+    <div class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6">
         <Heading
             title="Dashboard"
             description="Store performance and operational overview"
@@ -160,7 +158,9 @@ function breakdownPercent(count: number, total: number): number {
                     </p>
                 </div>
                 <div class="grid gap-0 divide-y divide-border/40">
-                    <div class="flex items-center justify-between gap-3 px-6 py-4">
+                    <div
+                        class="flex items-center justify-between gap-3 px-6 py-4"
+                    >
                         <div class="flex items-center gap-3">
                             <div
                                 class="flex size-9 items-center justify-center rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400"
@@ -168,7 +168,9 @@ function breakdownPercent(count: number, total: number): number {
                                 <ShoppingCart class="size-4" />
                             </div>
                             <div>
-                                <p class="text-sm font-medium">Pending orders</p>
+                                <p class="text-sm font-medium">
+                                    Pending orders
+                                </p>
                                 <p class="text-xs text-muted-foreground">
                                     Awaiting fulfillment
                                 </p>
@@ -179,7 +181,9 @@ function breakdownPercent(count: number, total: number): number {
                         }}</span>
                     </div>
 
-                    <div class="flex items-center justify-between gap-3 px-6 py-4">
+                    <div
+                        class="flex items-center justify-between gap-3 px-6 py-4"
+                    >
                         <div class="flex items-center gap-3">
                             <div
                                 class="flex size-9 items-center justify-center rounded-lg bg-shop-primary-500/10 text-shop-primary-600 dark:text-shop-primary-500"
@@ -187,7 +191,9 @@ function breakdownPercent(count: number, total: number): number {
                                 <Package class="size-4" />
                             </div>
                             <div>
-                                <p class="text-sm font-medium">Active products</p>
+                                <p class="text-sm font-medium">
+                                    Active products
+                                </p>
                                 <p class="text-xs text-muted-foreground">
                                     {{ overview.total_products }} total listed
                                 </p>
@@ -198,7 +204,9 @@ function breakdownPercent(count: number, total: number): number {
                         }}</span>
                     </div>
 
-                    <div class="flex items-center justify-between gap-3 px-6 py-4">
+                    <div
+                        class="flex items-center justify-between gap-3 px-6 py-4"
+                    >
                         <div class="flex items-center gap-3">
                             <div
                                 class="flex size-9 items-center justify-center rounded-lg bg-red-500/10 text-red-600 dark:text-red-400"
@@ -217,7 +225,9 @@ function breakdownPercent(count: number, total: number): number {
                         }}</span>
                     </div>
 
-                    <div class="flex items-center justify-between gap-3 px-6 py-4">
+                    <div
+                        class="flex items-center justify-between gap-3 px-6 py-4"
+                    >
                         <div class="flex items-center gap-3">
                             <div
                                 class="flex size-9 items-center justify-center rounded-lg bg-shop-primary-800/10 text-shop-primary-700 dark:text-shop-primary-600"
@@ -225,7 +235,9 @@ function breakdownPercent(count: number, total: number): number {
                                 <Heart class="size-4" />
                             </div>
                             <div>
-                                <p class="text-sm font-medium">Wishlist items</p>
+                                <p class="text-sm font-medium">
+                                    Wishlist items
+                                </p>
                                 <p class="text-xs text-muted-foreground">
                                     Customer demand signals
                                 </p>
@@ -241,10 +253,16 @@ function breakdownPercent(count: number, total: number): number {
 
         <!-- Breakdown Cards -->
         <div class="grid gap-6 lg:grid-cols-3">
-            <div class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm">
+            <div
+                class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm"
+            >
                 <div class="border-b border-border/40 px-6 py-5">
-                    <h3 class="text-sm font-semibold text-foreground">Orders by Status</h3>
-                    <p class="mt-0.5 text-xs text-muted-foreground">Fulfillment pipeline</p>
+                    <h3 class="text-sm font-semibold text-foreground">
+                        Orders by Status
+                    </h3>
+                    <p class="mt-0.5 text-xs text-muted-foreground">
+                        Fulfillment pipeline
+                    </p>
                 </div>
                 <div class="grid gap-3 px-6 py-5">
                     <div
@@ -270,10 +288,16 @@ function breakdownPercent(count: number, total: number): number {
                 </div>
             </div>
 
-            <div class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm">
+            <div
+                class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm"
+            >
                 <div class="border-b border-border/40 px-6 py-5">
-                    <h3 class="text-sm font-semibold text-foreground">Payment Status</h3>
-                    <p class="mt-0.5 text-xs text-muted-foreground">Collection health</p>
+                    <h3 class="text-sm font-semibold text-foreground">
+                        Payment Status
+                    </h3>
+                    <p class="mt-0.5 text-xs text-muted-foreground">
+                        Collection health
+                    </p>
                 </div>
                 <div class="grid gap-3 px-6 py-5">
                     <div
@@ -299,10 +323,16 @@ function breakdownPercent(count: number, total: number): number {
                 </div>
             </div>
 
-            <div class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm">
+            <div
+                class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm"
+            >
                 <div class="border-b border-border/40 px-6 py-5">
-                    <h3 class="text-sm font-semibold text-foreground">Payment Methods</h3>
-                    <p class="mt-0.5 text-xs text-muted-foreground">How customers pay</p>
+                    <h3 class="text-sm font-semibold text-foreground">
+                        Payment Methods
+                    </h3>
+                    <p class="mt-0.5 text-xs text-muted-foreground">
+                        How customers pay
+                    </p>
                 </div>
                 <div class="grid gap-3 px-6 py-5">
                     <div
@@ -331,13 +361,19 @@ function breakdownPercent(count: number, total: number): number {
 
         <!-- Recent Orders + Top Products -->
         <div class="grid gap-6 xl:grid-cols-2">
-            <div class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm">
+            <div
+                class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm"
+            >
                 <div
                     class="flex items-center justify-between gap-4 border-b border-border/40 px-6 py-5"
                 >
                     <div>
-                        <h3 class="text-sm font-semibold text-foreground">Recent Orders</h3>
-                        <p class="mt-0.5 text-xs text-muted-foreground">Latest customer activity</p>
+                        <h3 class="text-sm font-semibold text-foreground">
+                            Recent Orders
+                        </h3>
+                        <p class="mt-0.5 text-xs text-muted-foreground">
+                            Latest customer activity
+                        </p>
                     </div>
                     <Button variant="outline" size="sm" as-child>
                         <Link :href="ordersIndex()">View all</Link>
@@ -346,12 +382,34 @@ function breakdownPercent(count: number, total: number): number {
                 <div class="overflow-x-auto">
                     <table class="w-full min-w-[520px] text-sm">
                         <thead>
-                            <tr class="border-b bg-muted/30 text-left text-muted-foreground">
-                                <th class="px-6 py-3 text-xs font-medium uppercase tracking-wide">Order</th>
-                                <th class="px-4 py-3 text-xs font-medium uppercase tracking-wide">Customer</th>
-                                <th class="px-4 py-3 text-xs font-medium uppercase tracking-wide">Total</th>
-                                <th class="px-4 py-3 text-xs font-medium uppercase tracking-wide">Status</th>
-                                <th class="px-4 py-3 text-xs font-medium uppercase tracking-wide">Placed</th>
+                            <tr
+                                class="border-b bg-muted/30 text-left text-muted-foreground"
+                            >
+                                <th
+                                    class="px-6 py-3 text-xs font-medium tracking-wide uppercase"
+                                >
+                                    Order
+                                </th>
+                                <th
+                                    class="px-4 py-3 text-xs font-medium tracking-wide uppercase"
+                                >
+                                    Customer
+                                </th>
+                                <th
+                                    class="px-4 py-3 text-xs font-medium tracking-wide uppercase"
+                                >
+                                    Total
+                                </th>
+                                <th
+                                    class="px-4 py-3 text-xs font-medium tracking-wide uppercase"
+                                >
+                                    Status
+                                </th>
+                                <th
+                                    class="px-4 py-3 text-xs font-medium tracking-wide uppercase"
+                                >
+                                    Placed
+                                </th>
                                 <th class="px-4 py-3">
                                     <span class="sr-only">View</span>
                                 </th>
@@ -361,7 +419,7 @@ function breakdownPercent(count: number, total: number): number {
                             <tr
                                 v-for="order in recent_orders"
                                 :key="order.id"
-                                class="border-b border-border/30 last:border-0 transition-colors hover:bg-muted/20"
+                                class="border-b border-border/30 transition-colors last:border-0 hover:bg-muted/20"
                             >
                                 <td class="px-6 py-3.5 font-medium">
                                     {{ order.order_number }}
@@ -403,7 +461,9 @@ function breakdownPercent(count: number, total: number): number {
                                     >
                                         <Link :href="orderShow(order.id)">
                                             <Eye class="size-4" />
-                                            <span class="sr-only">View order</span>
+                                            <span class="sr-only"
+                                                >View order</span
+                                            >
                                         </Link>
                                     </Button>
                                 </td>
@@ -422,13 +482,19 @@ function breakdownPercent(count: number, total: number): number {
             </div>
 
             <div class="grid gap-6">
-                <div class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm">
+                <div
+                    class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm"
+                >
                     <div
                         class="flex items-center justify-between gap-4 border-b border-border/40 px-6 py-5"
                     >
                         <div>
-                            <h3 class="text-sm font-semibold text-foreground">Top Products</h3>
-                            <p class="mt-0.5 text-xs text-muted-foreground">By units sold</p>
+                            <h3 class="text-sm font-semibold text-foreground">
+                                Top Products
+                            </h3>
+                            <p class="mt-0.5 text-xs text-muted-foreground">
+                                By units sold
+                            </p>
                         </div>
                         <Button variant="outline" size="sm" as-child>
                             <Link :href="productsIndex()">View all</Link>
@@ -473,10 +539,16 @@ function breakdownPercent(count: number, total: number): number {
                     </div>
                 </div>
 
-                <div class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm">
+                <div
+                    class="overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm"
+                >
                     <div class="border-b border-border/40 px-6 py-5">
-                        <h3 class="text-sm font-semibold text-foreground">Top Categories</h3>
-                        <p class="mt-0.5 text-xs text-muted-foreground">By product count</p>
+                        <h3 class="text-sm font-semibold text-foreground">
+                            Top Categories
+                        </h3>
+                        <p class="mt-0.5 text-xs text-muted-foreground">
+                            By product count
+                        </p>
                     </div>
                     <div class="grid gap-0 divide-y divide-border/30 px-6">
                         <div

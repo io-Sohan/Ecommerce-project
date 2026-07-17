@@ -13,7 +13,7 @@ import AppLogoIcon from '@/components/AppLogoIcon.vue';
             Shop<span class="text-shop-primary-500">Ease</span>
         </span>
         <span
-            class="truncate text-[10px] font-medium leading-tight text-sidebar-foreground/60"
+            class="truncate text-[10px] leading-tight font-medium text-sidebar-foreground/60"
         >
             Admin Panel
         </span>

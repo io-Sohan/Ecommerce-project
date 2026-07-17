@@ -13,9 +13,7 @@ const { search, setSearch } = useShopCatalog();
 
 const isShopPage = computed(() => page.component === 'shop/Shop');
 const isAuthenticated = computed(() => !!page.props.auth?.user);
-const isAdmin = computed(
-    () => page.props.auth?.user?.role === 'admin',
-);
+const isAdmin = computed(() => page.props.auth?.user?.role === 'admin');
 
 function handleSearchInput(event: Event): void {
     if (!isShopPage.value) {

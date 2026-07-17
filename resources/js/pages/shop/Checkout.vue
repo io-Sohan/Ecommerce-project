@@ -49,8 +49,11 @@ async function handleApplyCoupon(code: string): Promise<void> {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')?.content ?? '',
-                'Accept': 'application/json',
+                'X-CSRF-TOKEN':
+                    document.querySelector<HTMLMetaElement>(
+                        'meta[name="csrf-token"]',
+                    )?.content ?? '',
+                Accept: 'application/json',
             },
             body: JSON.stringify({ code, subtotal: cartSubtotal.value }),
         });
@@ -390,7 +393,9 @@ function handleSubmit(): void {
                                     class="mb-1.5 block text-sm font-medium text-gray-700"
                                 >
                                     Order notes
-                                    <span class="text-gray-400">(optional)</span>
+                                    <span class="text-gray-400"
+                                        >(optional)</span
+                                    >
                                 </label>
                                 <textarea
                                     id="notes"
@@ -444,7 +449,9 @@ function handleSubmit(): void {
                                     />
                                 </svg>
                                 <div>
-                                    <p class="text-sm font-semibold text-gray-900">
+                                    <p
+                                        class="text-sm font-semibold text-gray-900"
+                                    >
                                         Cash on Delivery
                                     </p>
                                     <p class="mt-1 text-sm text-gray-500">
@@ -483,7 +490,9 @@ function handleSubmit(): void {
                                     />
                                 </svg>
                                 <div>
-                                    <p class="text-sm font-semibold text-gray-900">
+                                    <p
+                                        class="text-sm font-semibold text-gray-900"
+                                    >
                                         Pay Online (SSLCommerz)
                                     </p>
                                     <p class="mt-1 text-sm text-gray-500">
@@ -522,11 +531,14 @@ function handleSubmit(): void {
                                     />
                                 </svg>
                                 <div>
-                                    <p class="text-sm font-semibold text-gray-900">
+                                    <p
+                                        class="text-sm font-semibold text-gray-900"
+                                    >
                                         Pay Online (Stripe)
                                     </p>
                                     <p class="mt-1 text-sm text-gray-500">
-                                        Checkout securely with cards, Apple Pay, or other supported Stripe methods.
+                                        Checkout securely with cards, Apple Pay,
+                                        or other supported Stripe methods.
                                     </p>
                                 </div>
                             </label>
@@ -543,25 +555,25 @@ function handleSubmit(): void {
 
                 <div class="lg:col-span-1">
                     <div class="lg:sticky lg:top-24">
-                    <ShopCheckoutSummary
-                        :items="cart"
-                        :subtotal="cartSubtotal"
-                        :delivery-charge="deliveryCharge"
-                        :delivery-note="deliveryNote"
-                        :is-empty="cart.length === 0"
-                        :processing="form.processing"
-                        :submit-label="submitLabel"
-                        :discount-amount="discountAmount"
-                        :coupon-code="couponCode"
-                        :coupon-applying="couponApplying"
-                        :coupon-message="couponMessage"
-                        :coupon-valid="couponValid"
-                        @increment="handleIncrement"
-                        @decrement="handleDecrement"
-                        @remove="handleRemove"
-                        @apply-coupon="handleApplyCoupon"
-                        @remove-coupon="handleRemoveCoupon"
-                    />
+                        <ShopCheckoutSummary
+                            :items="cart"
+                            :subtotal="cartSubtotal"
+                            :delivery-charge="deliveryCharge"
+                            :delivery-note="deliveryNote"
+                            :is-empty="cart.length === 0"
+                            :processing="form.processing"
+                            :submit-label="submitLabel"
+                            :discount-amount="discountAmount"
+                            :coupon-code="couponCode"
+                            :coupon-applying="couponApplying"
+                            :coupon-message="couponMessage"
+                            :coupon-valid="couponValid"
+                            @increment="handleIncrement"
+                            @decrement="handleDecrement"
+                            @remove="handleRemove"
+                            @apply-coupon="handleApplyCoupon"
+                            @remove-coupon="handleRemoveCoupon"
+                        />
                     </div>
                 </div>
             </form>

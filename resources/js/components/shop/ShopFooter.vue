@@ -155,7 +155,9 @@ const year = computed(() => new Date().getFullYear());
                     </h3>
                     <ul class="mt-5 space-y-4 text-sm">
                         <li class="flex items-start gap-3">
-                            <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-gray-400">
+                            <span
+                                class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-gray-400"
+                            >
                                 <svg
                                     class="h-4 w-4"
                                     fill="none"
@@ -180,7 +182,9 @@ const year = computed(() => new Date().getFullYear());
                             >
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-gray-400">
+                            <span
+                                class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-gray-400"
+                            >
                                 <svg
                                     class="h-4 w-4"
                                     fill="none"
@@ -202,7 +206,9 @@ const year = computed(() => new Date().getFullYear());
                             >
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-gray-400">
+                            <span
+                                class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-gray-400"
+                            >
                                 <svg
                                     class="h-4 w-4"
                                     fill="none"

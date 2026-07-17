@@ -77,7 +77,9 @@ function handleToggleWishlist(): void {
                 <span
                     v-if="product.oldPrice && product.inStock"
                     class="rounded-lg bg-red-500 px-2.5 py-1 text-[10px] font-bold tracking-wider text-white uppercase shadow-md"
-                    >-{{ savingsPercent(product.price, product.oldPrice) }}%</span
+                    >-{{
+                        savingsPercent(product.price, product.oldPrice)
+                    }}%</span
                 >
             </div>
 
@@ -92,7 +94,7 @@ function handleToggleWishlist(): void {
                             ? `Remove ${product.name} from wishlist`
                             : `Add ${product.name} to wishlist`
                     "
-                    class="inline-flex h-9 w-9 translate-y-1 items-center justify-center rounded-xl bg-white/95 shadow-lg transition-all duration-300 group-hover:translate-y-0 hover:scale-110 active:scale-95 focus:ring-2 focus:ring-shop-primary-600 focus:outline-none"
+                    class="inline-flex h-9 w-9 translate-y-1 items-center justify-center rounded-xl bg-white/95 shadow-lg transition-all duration-300 group-hover:translate-y-0 hover:scale-110 focus:ring-2 focus:ring-shop-primary-600 focus:outline-none active:scale-95"
                     :class="
                         isWishlisted(product.id!)
                             ? 'text-red-500'
@@ -102,7 +104,9 @@ function handleToggleWishlist(): void {
                 >
                     <svg
                         class="h-4 w-4"
-                        :fill="isWishlisted(product.id!) ? 'currentColor' : 'none'"
+                        :fill="
+                            isWishlisted(product.id!) ? 'currentColor' : 'none'
+                        "
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                         :stroke-width="isWishlisted(product.id!) ? '0' : '2'"
@@ -118,7 +122,7 @@ function handleToggleWishlist(): void {
                     v-if="product.inStock && product.id"
                     type="button"
                     :aria-label="`Quick add ${product.name} to cart`"
-                    class="inline-flex h-9 w-9 translate-y-1 items-center justify-center rounded-xl bg-white/95 text-gray-500 shadow-lg transition-all duration-300 group-hover:translate-y-0 hover:scale-110 hover:text-shop-primary-600 active:scale-95 focus:ring-2 focus:ring-shop-primary-600 focus:outline-none"
+                    class="inline-flex h-9 w-9 translate-y-1 items-center justify-center rounded-xl bg-white/95 text-gray-500 shadow-lg transition-all duration-300 group-hover:translate-y-0 hover:scale-110 hover:text-shop-primary-600 focus:ring-2 focus:ring-shop-primary-600 focus:outline-none active:scale-95"
                     @click="handleAddToCart"
                 >
                     <svg

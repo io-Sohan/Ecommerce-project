@@ -84,10 +84,7 @@ const { products, total, hasActiveFilters, clearFilters } = useShopCatalog();
                     />
                 </div>
 
-                <div
-                    v-else
-                    class="py-16 text-center"
-                >
+                <div v-else class="py-16 text-center">
                     <div
                         class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 text-gray-400"
                     >

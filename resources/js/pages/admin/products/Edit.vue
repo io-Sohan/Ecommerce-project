@@ -4,7 +4,10 @@ import ProductController from '@/actions/App/Http/Controllers/Admin/ProductContr
 import ProductForm from '@/components/admin/ProductForm.vue';
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
-import { mapServerProductImages, serializeProductImagesForSubmit } from '@/lib/admin/productImages';
+import {
+    mapServerProductImages,
+    serializeProductImagesForSubmit,
+} from '@/lib/admin/productImages';
 import { dashboard } from '@/routes';
 import { edit, index } from '@/routes/admin/products';
 import type {
@@ -52,16 +55,14 @@ const form = useForm<ProductFormData>({
 });
 
 function submit(): void {
-    form
-        .transform((data) => ({
-            ...data,
-            _method: 'put',
-            images: serializeProductImagesForSubmit(data.images),
-        }))
-        .post(ProductController.update.url(props.product.id), {
-            forceFormData: true,
-            preserveScroll: true,
-        });
+    form.transform((data) => ({
+        ...data,
+        _method: 'put',
+        images: serializeProductImagesForSubmit(data.images),
+    })).post(ProductController.update.url(props.product.id), {
+        forceFormData: true,
+        preserveScroll: true,
+    });
 }
 </script>
 

@@ -69,7 +69,9 @@ function paymentStatusVariant(
     }
 }
 
-function paymentMethodLabel(method: AdminOrderListItem['payment_method']): string {
+function paymentMethodLabel(
+    method: AdminOrderListItem['payment_method'],
+): string {
     if (method === 'cod') {
         return 'Cash on Delivery';
     }
@@ -93,13 +95,8 @@ function formatDate(value: string | null): string {
 <template>
     <Head title="Orders" />
 
-    <div
-        class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6"
-    >
-        <Heading
-            title="Orders"
-            description="View and manage customer orders"
-        />
+    <div class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6">
+        <Heading title="Orders" description="View and manage customer orders" />
 
         <form
             :action="index()"
@@ -185,14 +182,16 @@ function formatDate(value: string | null): string {
                         <tr
                             v-for="order in orders"
                             :key="order.id"
-                            class="border-b border-border/30 last:border-b-0 transition-colors hover:bg-muted/20"
+                            class="border-b border-border/30 transition-colors last:border-b-0 hover:bg-muted/20"
                         >
                             <td class="px-4 py-3">
                                 <p class="font-medium">
                                     {{ order.order_number }}
                                 </p>
                                 <p class="text-muted-foreground">
-                                    {{ paymentMethodLabel(order.payment_method) }}
+                                    {{
+                                        paymentMethodLabel(order.payment_method)
+                                    }}
                                 </p>
                             </td>
                             <td class="px-4 py-3">

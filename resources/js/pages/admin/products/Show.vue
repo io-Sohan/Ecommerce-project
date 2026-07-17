@@ -45,7 +45,9 @@ setLayoutProps({
     <div
         class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
     >
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div
+            class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        >
             <Heading :title="product.name" description="Product details" />
 
             <Button as-child>
@@ -84,7 +86,9 @@ setLayoutProps({
                                 class="size-full object-cover"
                             />
                         </div>
-                        <div class="flex items-center justify-between gap-2 p-2 text-xs">
+                        <div
+                            class="flex items-center justify-between gap-2 p-2 text-xs"
+                        >
                             <span class="text-muted-foreground">
                                 Order {{ image.sort_order + 1 }}
                             </span>
@@ -137,9 +141,7 @@ setLayoutProps({
                     </div>
 
                     <div class="grid gap-1">
-                        <p class="text-sm text-muted-foreground">
-                            Description
-                        </p>
+                        <p class="text-sm text-muted-foreground">Description</p>
                         <RichTextContent :html="product.description ?? ''" />
                     </div>
 
@@ -199,9 +201,7 @@ setLayoutProps({
 
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div class="grid gap-1">
-                            <p class="text-sm text-muted-foreground">
-                                Created
-                            </p>
+                            <p class="text-sm text-muted-foreground">Created</p>
                             <p class="font-medium">
                                 {{
                                     new Date(
@@ -211,9 +211,7 @@ setLayoutProps({
                             </p>
                         </div>
                         <div class="grid gap-1">
-                            <p class="text-sm text-muted-foreground">
-                                Updated
-                            </p>
+                            <p class="text-sm text-muted-foreground">Updated</p>
                             <p class="font-medium">
                                 {{
                                     new Date(

@@ -12,8 +12,12 @@ function handleSubmit(event: Event): void {
 <template>
     <section class="relative overflow-hidden bg-shop-primary-600">
         <!-- Decorative blobs -->
-        <div class="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/5" />
-        <div class="pointer-events-none absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-black/10" />
+        <div
+            class="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/5"
+        />
+        <div
+            class="pointer-events-none absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-black/10"
+        />
 
         <div
             class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8"
@@ -22,15 +26,17 @@ function handleSubmit(event: Event): void {
                 class="flex flex-col items-center gap-8 text-center md:flex-row md:justify-between md:text-left"
             >
                 <div class="max-w-lg">
-                    <span class="inline-block rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold tracking-wider text-white uppercase">
+                    <span
+                        class="inline-block rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold tracking-wider text-white uppercase"
+                    >
                         🎉 Exclusive offer
                     </span>
-                    <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+                    <h2
+                        class="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl"
+                    >
                         Get 10% off your first order
                     </h2>
-                    <p
-                        class="mt-3 text-base leading-relaxed text-white/80"
-                    >
+                    <p class="mt-3 text-base leading-relaxed text-white/80">
                         Subscribe for new arrivals, exclusive deals, and offers
                         delivered to your inbox.
                     </p>

@@ -104,7 +104,9 @@ function goToReviews(): void {
             </span>
         </div>
 
-        <p class="mt-5 max-w-prose text-sm leading-relaxed text-gray-600 md:text-base">
+        <p
+            class="mt-5 max-w-prose text-sm leading-relaxed text-gray-600 md:text-base"
+        >
             {{ product.summary }}
         </p>
 

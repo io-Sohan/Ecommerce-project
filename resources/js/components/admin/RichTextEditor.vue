@@ -89,7 +89,9 @@ watch(
         const normalizedValue = value || '<p></p>';
 
         if (currentHtml !== normalizedValue) {
-            editor.value.commands.setContent(normalizedValue, { emitUpdate: false });
+            editor.value.commands.setContent(normalizedValue, {
+                emitUpdate: false,
+            });
         }
     },
 );
@@ -110,7 +112,9 @@ function toggleLink(): void {
         return;
     }
 
-    const previousUrl = editor.value.getAttributes('link').href as string | undefined;
+    const previousUrl = editor.value.getAttributes('link').href as
+        | string
+        | undefined;
     const url = window.prompt('Enter URL', previousUrl ?? 'https://');
 
     if (url === null) {
@@ -123,14 +127,16 @@ function toggleLink(): void {
         return;
     }
 
-    editor.value.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+    editor.value
+        .chain()
+        .focus()
+        .extendMarkRange('link')
+        .setLink({ href: url })
+        .run();
 }
 
 function toolbarButtonClass(isActive = false): string {
-    return cn(
-        'size-8',
-        isActive && 'bg-muted text-foreground',
-    );
+    return cn('size-8', isActive && 'bg-muted text-foreground');
 }
 </script>
 
@@ -183,8 +189,12 @@ function toolbarButtonClass(isActive = false): string {
                 type="button"
                 variant="ghost"
                 size="icon"
-                :class="toolbarButtonClass(editor.isActive('heading', { level: 2 }))"
-                @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
+                :class="
+                    toolbarButtonClass(editor.isActive('heading', { level: 2 }))
+                "
+                @click="
+                    editor.chain().focus().toggleHeading({ level: 2 }).run()
+                "
             >
                 <Heading2 class="size-4" />
             </Button>
@@ -192,8 +202,12 @@ function toolbarButtonClass(isActive = false): string {
                 type="button"
                 variant="ghost"
                 size="icon"
-                :class="toolbarButtonClass(editor.isActive('heading', { level: 3 }))"
-                @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
+                :class="
+                    toolbarButtonClass(editor.isActive('heading', { level: 3 }))
+                "
+                @click="
+                    editor.chain().focus().toggleHeading({ level: 3 }).run()
+                "
             >
                 <Heading3 class="size-4" />
             </Button>
@@ -252,7 +266,9 @@ function toolbarButtonClass(isActive = false): string {
                 type="button"
                 variant="ghost"
                 size="icon"
-                :class="toolbarButtonClass(editor.isActive({ textAlign: 'left' }))"
+                :class="
+                    toolbarButtonClass(editor.isActive({ textAlign: 'left' }))
+                "
                 @click="editor.chain().focus().setTextAlign('left').run()"
             >
                 <AlignLeft class="size-4" />
@@ -261,7 +277,9 @@ function toolbarButtonClass(isActive = false): string {
                 type="button"
                 variant="ghost"
                 size="icon"
-                :class="toolbarButtonClass(editor.isActive({ textAlign: 'center' }))"
+                :class="
+                    toolbarButtonClass(editor.isActive({ textAlign: 'center' }))
+                "
                 @click="editor.chain().focus().setTextAlign('center').run()"
             >
                 <AlignCenter class="size-4" />
@@ -270,7 +288,9 @@ function toolbarButtonClass(isActive = false): string {
                 type="button"
                 variant="ghost"
                 size="icon"
-                :class="toolbarButtonClass(editor.isActive({ textAlign: 'right' }))"
+                :class="
+                    toolbarButtonClass(editor.isActive({ textAlign: 'right' }))
+                "
                 @click="editor.chain().focus().setTextAlign('right').run()"
             >
                 <AlignRight class="size-4" />
@@ -300,10 +320,7 @@ function toolbarButtonClass(isActive = false): string {
             </Button>
         </div>
 
-        <div
-            v-if="!isReady"
-            class="min-h-48 animate-pulse bg-muted/20"
-        />
+        <div v-if="!isReady" class="min-h-48 animate-pulse bg-muted/20" />
 
         <EditorContent
             v-else

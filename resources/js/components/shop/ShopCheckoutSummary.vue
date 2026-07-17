@@ -209,14 +209,18 @@ function toggleSummary(): void {
 
             <!-- Coupon Section -->
             <div class="border-t border-gray-100 px-5 py-4">
-                <p class="mb-2 text-sm font-medium text-gray-700">Have a coupon?</p>
+                <p class="mb-2 text-sm font-medium text-gray-700">
+                    Have a coupon?
+                </p>
                 <div v-if="!couponValid" class="flex gap-2">
                     <input
                         v-model="couponInput"
                         type="text"
                         placeholder="Enter code"
-                        class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm uppercase text-gray-900 transition focus:border-shop-primary-600 focus:ring-2 focus:ring-shop-primary-600 focus:outline-none"
-                        @keydown.enter.prevent="emit('applyCoupon', couponInput)"
+                        class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 uppercase transition focus:border-shop-primary-600 focus:ring-2 focus:ring-shop-primary-600 focus:outline-none"
+                        @keydown.enter.prevent="
+                            emit('applyCoupon', couponInput)
+                        "
                     />
                     <button
                         type="button"
@@ -227,14 +231,20 @@ function toggleSummary(): void {
                         {{ couponApplying ? '...' : 'Apply' }}
                     </button>
                 </div>
-                <div v-else class="flex items-center justify-between rounded-lg bg-green-50 px-3 py-2">
+                <div
+                    v-else
+                    class="flex items-center justify-between rounded-lg bg-green-50 px-3 py-2"
+                >
                     <span class="text-sm font-medium text-green-700">
                         <span class="font-mono">{{ couponCode }}</span> applied
                     </span>
                     <button
                         type="button"
                         class="text-sm font-medium text-red-600 hover:text-red-700"
-                        @click="emit('removeCoupon'); couponInput = ''"
+                        @click="
+                            emit('removeCoupon');
+                            couponInput = '';
+                        "
                     >
                         Remove
                     </button>
@@ -247,18 +257,21 @@ function toggleSummary(): void {
                 </p>
             </div>
 
-            <div
-                class="space-y-2.5 border-t border-gray-100 px-5 py-4 text-sm"
-            >
+            <div class="space-y-2.5 border-t border-gray-100 px-5 py-4 text-sm">
                 <div class="flex justify-between">
                     <span class="text-gray-500">Subtotal</span>
                     <span class="font-medium text-gray-900">{{
                         formatTaka(subtotal)
                     }}</span>
                 </div>
-                <div v-if="discountAmount > 0" class="flex justify-between text-green-600">
+                <div
+                    v-if="discountAmount > 0"
+                    class="flex justify-between text-green-600"
+                >
                     <span>Discount</span>
-                    <span class="font-medium">−{{ formatTaka(discountAmount) }}</span>
+                    <span class="font-medium"
+                        >−{{ formatTaka(discountAmount) }}</span
+                    >
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-500">

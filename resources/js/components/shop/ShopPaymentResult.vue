@@ -13,7 +13,7 @@ const { status, order } = defineProps<{
 const content = computed(() => {
     if (status === 'success') {
         return {
-            gradient: 'from-green-500 to-emerald-600',
+            gradient: 'from-emerald-950 via-emerald-900 to-teal-800',
             title: 'Payment successful!',
             description:
                 'Your payment has been confirmed and your order is being processed. A confirmation email is on its way.',
@@ -23,7 +23,7 @@ const content = computed(() => {
 
     if (status === 'failed') {
         return {
-            gradient: 'from-red-500 to-rose-600',
+            gradient: 'from-rose-950 via-rose-900 to-red-800',
             title: 'Payment failed',
             description:
                 'We could not process your payment. No charges were made. You can try again or choose a different payment method.',
@@ -32,7 +32,7 @@ const content = computed(() => {
     }
 
     return {
-        gradient: 'from-amber-500 to-orange-500',
+        gradient: 'from-amber-950 via-amber-900 to-orange-800',
         title: 'Payment cancelled',
         description:
             'You cancelled the payment on the gateway page. Your order is saved but not paid yet.',
@@ -42,7 +42,8 @@ const content = computed(() => {
 });
 
 const hasInvoiceDetails = computed(
-    () => order && order.items && order.items.length > 0 && status === 'success',
+    () =>
+        order && order.items && order.items.length > 0 && status === 'success',
 );
 
 const formattedDate = computed(() => {
@@ -76,39 +77,51 @@ function printInvoice(): void {
     <div class="mx-auto max-w-3xl">
         <!-- ─── Status Banner ──────────────────────────────────────────────── -->
         <div
-            class="overflow-hidden rounded-t-3xl px-8 py-10 text-center md:px-12 print:rounded-none print:py-6"
-            :class="`bg-gradient-to-r ${content.gradient}`"
+            class="relative overflow-hidden rounded-t-3xl px-8 py-12 text-center md:px-12 print:rounded-none print:bg-none print:py-6 print:text-black"
+            :class="`bg-gradient-to-br ${content.gradient}`"
         >
+            <!-- Decorative backdrop elements -->
             <div
-                class="mx-auto mb-4 flex h-18 w-18 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm print:hidden"
-            >
-                <svg
-                    class="h-10 w-10 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2.5"
+                class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-from),transparent_60%)] opacity-20"
+            ></div>
+            <div
+                class="absolute -top-24 -left-20 h-48 w-48 rounded-full bg-white/5 blur-3xl"
+            ></div>
+
+            <div class="relative z-10">
+                <div
+                    class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/10 shadow-inner ring-1 ring-white/20 backdrop-blur-md transition-transform duration-500 hover:scale-105 print:hidden"
                 >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        :d="content.iconPath"
-                    />
-                </svg>
+                    <svg
+                        class="h-11 w-11 animate-pulse text-white drop-shadow-md"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            :d="content.iconPath"
+                        />
+                    </svg>
+                </div>
+                <h1
+                    class="text-3xl font-extrabold tracking-tight text-white md:text-4xl print:text-xl print:text-black"
+                >
+                    {{ content.title }}
+                </h1>
+                <p
+                    class="mx-auto mt-3 max-w-md text-sm text-white/80 md:text-base print:text-xs print:text-gray-600"
+                >
+                    {{ content.description }}
+                </p>
             </div>
-            <h1
-                class="text-2xl font-extrabold text-white md:text-3xl print:text-xl"
-            >
-                {{ content.title }}
-            </h1>
-            <p class="mt-2 text-sm text-white/80 md:text-base print:text-xs">
-                {{ content.description }}
-            </p>
         </div>
 
         <!-- ─── Invoice Body ───────────────────────────────────────────────── -->
         <div
-            class="rounded-b-3xl bg-white shadow-xl ring-1 ring-gray-200/80 print:rounded-none print:shadow-none print:ring-0"
+            class="rounded-b-3xl border border-t-0 border-gray-100/50 bg-white shadow-xl ring-1 ring-gray-200/80 print:rounded-none print:border-0 print:shadow-none print:ring-0"
         >
             <!-- Invoice Header (only for success with full details) -->
             <div
@@ -164,29 +177,29 @@ function printInvoice(): void {
             <!-- Customer & Shipping Details (success with full data) -->
             <div
                 v-if="hasInvoiceDetails && order"
-                class="grid grid-cols-1 gap-0 border-b border-gray-100 sm:grid-cols-2 print:grid-cols-2"
+                class="grid grid-cols-1 gap-0 border-b border-gray-100/80 bg-gray-50/30 sm:grid-cols-2 print:grid-cols-2 print:bg-none"
             >
                 <div
-                    class="border-b border-gray-100 px-8 py-5 sm:border-b-0 sm:border-r md:px-12 print:px-6 print:py-3"
+                    class="border-b border-gray-100 px-8 py-6 sm:border-r sm:border-b-0 sm:border-gray-100/80 md:px-12 print:px-6 print:py-3"
                 >
                     <p
-                        class="mb-2 text-[10px] font-bold tracking-widest text-indigo-600 uppercase print:text-[9px]"
+                        class="mb-2 text-[10px] font-bold tracking-widest text-shop-primary-600 uppercase print:text-[9px]"
                     >
                         Bill To
                     </p>
-                    <p class="text-sm font-semibold text-gray-900 print:text-xs">
+                    <p class="text-sm font-bold text-gray-900 print:text-xs">
                         {{ order.customerName }}
                     </p>
                     <p class="mt-1 text-xs text-gray-600">{{ order.phone }}</p>
                     <p class="text-xs text-gray-600">{{ order.email }}</p>
                 </div>
-                <div class="px-8 py-5 md:px-12 print:px-6 print:py-3">
+                <div class="px-8 py-6 md:px-12 print:px-6 print:py-3">
                     <p
-                        class="mb-2 text-[10px] font-bold tracking-widest text-orange-600 uppercase print:text-[9px]"
+                        class="mb-2 text-[10px] font-bold tracking-widest text-shop-accent-600 uppercase print:text-[9px]"
                     >
                         Ship To
                     </p>
-                    <p class="text-sm font-semibold text-gray-900 print:text-xs">
+                    <p class="text-sm font-bold text-gray-900 print:text-xs">
                         {{ order.address }}
                     </p>
                     <p class="mt-1 text-xs text-gray-600">
@@ -194,7 +207,7 @@ function printInvoice(): void {
                     </p>
                     <p
                         v-if="order.notes"
-                        class="mt-1 text-xs text-amber-600 italic"
+                        class="mt-2 rounded-lg border border-amber-100/50 bg-amber-50/60 px-3 py-1.5 text-xs text-amber-800 italic print:border-none print:bg-none print:p-0 print:text-amber-700"
                     >
                         Note: {{ order.notes }}
                     </p>
@@ -207,7 +220,7 @@ function printInvoice(): void {
                 class="grid grid-cols-2 gap-0 border-b border-gray-100 sm:grid-cols-4 print:grid-cols-4"
             >
                 <div
-                    class="border-b border-r border-gray-100 px-6 py-4 sm:border-b-0 print:px-4 print:py-2"
+                    class="border-r border-b border-gray-100/80 px-6 py-5 sm:border-b-0 print:px-4 print:py-2"
                 >
                     <p
                         class="text-[10px] font-bold tracking-wider text-gray-400 uppercase"
@@ -215,56 +228,67 @@ function printInvoice(): void {
                         Payment
                     </p>
                     <p
-                        class="mt-1 text-sm font-semibold text-gray-900 print:text-xs"
+                        class="mt-1.5 text-sm font-bold text-gray-900 print:text-xs"
                     >
                         {{ order.paymentLabel }}
                     </p>
                 </div>
                 <div
-                    class="border-b border-gray-100 px-6 py-4 sm:border-b-0 sm:border-r print:px-4 print:py-2"
+                    class="border-b border-gray-100/80 px-6 py-5 sm:border-r sm:border-b-0 sm:border-gray-100/80 print:px-4 print:py-2"
                 >
                     <p
                         class="text-[10px] font-bold tracking-wider text-gray-400 uppercase"
                     >
                         Payment Status
                     </p>
-                    <p class="mt-1">
+                    <p class="mt-1.5">
                         <span
-                            class="inline-block rounded-full px-2 py-0.5 text-[11px] font-bold capitalize"
+                            class="inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-bold capitalize ring-1"
                             :class="
                                 order.paymentStatus === 'paid'
-                                    ? 'bg-emerald-100 text-emerald-700'
-                                    : 'bg-amber-100 text-amber-700'
+                                    ? 'bg-emerald-50 text-emerald-700 ring-emerald-600/20'
+                                    : 'bg-amber-50 text-amber-700 ring-amber-600/20'
                             "
                         >
+                            <span
+                                class="mr-1 h-1.5 w-1.5 rounded-full"
+                                :class="
+                                    order.paymentStatus === 'paid'
+                                        ? 'bg-emerald-500'
+                                        : 'bg-amber-500'
+                                "
+                            ></span>
                             {{ order.paymentStatus ?? 'pending' }}
                         </span>
                     </p>
                 </div>
                 <div
-                    class="border-r border-gray-100 px-6 py-4 print:px-4 print:py-2"
+                    class="border-r border-gray-100/80 px-6 py-5 print:px-4 print:py-2"
                 >
                     <p
                         class="text-[10px] font-bold tracking-wider text-gray-400 uppercase"
                     >
                         Order Status
                     </p>
-                    <p class="mt-1">
+                    <p class="mt-1.5">
                         <span
-                            class="inline-block rounded-full bg-indigo-100 px-2 py-0.5 text-[11px] font-bold capitalize text-indigo-700"
+                            class="inline-flex items-center rounded-full bg-shop-primary-50 px-2.5 py-0.5 text-[11px] font-bold text-shop-primary-700 capitalize ring-1 ring-shop-primary-600/10"
                         >
+                            <span
+                                class="mr-1 h-1.5 w-1.5 animate-pulse rounded-full bg-shop-primary-500"
+                            ></span>
                             {{ order.status ?? 'pending' }}
                         </span>
                     </p>
                 </div>
-                <div class="px-6 py-4 print:px-4 print:py-2">
+                <div class="px-6 py-5 print:px-4 print:py-2">
                     <p
                         class="text-[10px] font-bold tracking-wider text-gray-400 uppercase"
                     >
                         Items
                     </p>
                     <p
-                        class="mt-1 text-sm font-semibold text-gray-900 print:text-xs"
+                        class="mt-1.5 text-sm font-bold text-gray-900 print:text-xs"
                     >
                         {{ totalQuantity }}
                         {{ totalQuantity === 1 ? 'item' : 'items' }}
@@ -317,19 +341,19 @@ function printInvoice(): void {
                                 v-for="(item, idx) in order.items"
                                 :key="item.id"
                                 :class="[
-                                    'border-b border-gray-100 last:border-b-0',
+                                    'border-b border-gray-100 transition-colors last:border-b-0 hover:bg-gray-50/50',
                                     idx % 2 === 1
-                                        ? 'bg-indigo-50/40'
+                                        ? 'bg-shop-primary-50/15'
                                         : 'bg-white',
                                 ]"
                             >
                                 <td
-                                    class="px-4 py-3 text-gray-400 print:px-3 print:py-2"
+                                    class="px-4 py-3 font-medium text-gray-400 print:px-3 print:py-2"
                                 >
                                     {{ idx + 1 }}
                                 </td>
                                 <td
-                                    class="px-4 py-3 font-medium text-gray-900 print:px-3 print:py-2"
+                                    class="px-4 py-3 font-semibold text-gray-900 print:px-3 print:py-2"
                                 >
                                     {{ item.productName }}
                                 </td>
@@ -337,7 +361,7 @@ function printInvoice(): void {
                                     class="px-4 py-3 text-center print:px-3 print:py-2"
                                 >
                                     <span
-                                        class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100 text-[11px] font-bold text-indigo-700 print:bg-gray-200 print:text-gray-700"
+                                        class="inline-flex h-6 w-8 items-center justify-center rounded-lg bg-shop-primary-50 text-[11px] font-bold text-shop-primary-700 ring-1 ring-shop-primary-600/10 print:bg-gray-100 print:text-gray-700 print:ring-0"
                                     >
                                         {{ item.quantity }}
                                     </span>
@@ -363,14 +387,12 @@ function printInvoice(): void {
                 v-if="hasInvoiceDetails && order"
                 class="px-8 py-6 md:px-12 print:px-6 print:py-4"
             >
-                <div
-                    class="ml-auto max-w-xs space-y-2 print:max-w-[200px]"
-                >
+                <div class="ml-auto max-w-xs space-y-2.5 print:max-w-[200px]">
                     <div
                         class="flex items-center justify-between text-sm text-gray-600 print:text-xs"
                     >
                         <span>Subtotal</span>
-                        <span class="font-medium text-gray-900">
+                        <span class="font-semibold text-gray-900">
                             {{ formatTaka(order.subtotal ?? 0) }}
                         </span>
                     </div>
@@ -378,17 +400,21 @@ function printInvoice(): void {
                         class="flex items-center justify-between text-sm text-gray-600 print:text-xs"
                     >
                         <span>Delivery Charge</span>
-                        <span class="font-medium text-gray-900">
+                        <span class="font-semibold text-gray-900">
                             {{ formatTaka(order.deliveryCharge ?? 0) }}
                         </span>
                     </div>
                     <div
-                        class="mt-2 flex items-center justify-between rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 px-4 py-3 text-white print:rounded-none print:from-gray-800 print:to-gray-800 print:px-3 print:py-2"
+                        class="from-shop-primary-950 via-shop-primary-900 shadow-shop-primary-900/10 mt-3 flex items-center justify-between rounded-xl bg-gradient-to-r to-shop-primary-800 px-4 py-3.5 text-white shadow-md print:rounded-none print:from-gray-800 print:to-gray-800 print:px-3 print:py-2 print:shadow-none"
                     >
-                        <span class="text-sm font-bold print:text-xs">
+                        <span
+                            class="text-sm font-extrabold tracking-wide print:text-xs"
+                        >
                             Grand Total
                         </span>
-                        <span class="text-lg font-extrabold print:text-sm">
+                        <span
+                            class="text-xl font-black tracking-tight text-white print:text-sm"
+                        >
                             {{ formatTaka(order.total) }}
                         </span>
                     </div>
@@ -399,12 +425,10 @@ function printInvoice(): void {
             <div v-else class="px-8 py-8 md:px-12">
                 <div
                     v-if="order"
-                    class="grid grid-cols-1 gap-4 rounded-2xl bg-gray-50 p-5 text-sm sm:grid-cols-3"
+                    class="animate-fade-in grid grid-cols-1 gap-4 rounded-2xl bg-gray-50 p-5 text-sm sm:grid-cols-3"
                 >
                     <div>
-                        <p
-                            class="text-xs font-medium text-gray-400 uppercase"
-                        >
+                        <p class="text-xs font-medium text-gray-400 uppercase">
                             Order number
                         </p>
                         <p class="mt-1 font-bold text-gray-900">
@@ -412,9 +436,7 @@ function printInvoice(): void {
                         </p>
                     </div>
                     <div>
-                        <p
-                            class="text-xs font-medium text-gray-400 uppercase"
-                        >
+                        <p class="text-xs font-medium text-gray-400 uppercase">
                             Total
                         </p>
                         <p class="mt-1 font-bold text-gray-900">
@@ -422,9 +444,7 @@ function printInvoice(): void {
                         </p>
                     </div>
                     <div>
-                        <p
-                            class="text-xs font-medium text-gray-400 uppercase"
-                        >
+                        <p class="text-xs font-medium text-gray-400 uppercase">
                             Payment
                         </p>
                         <p class="mt-1 font-bold text-gray-900">
@@ -437,8 +457,8 @@ function printInvoice(): void {
                     v-else
                     class="rounded-2xl bg-gray-50 p-5 text-center text-sm text-gray-600"
                 >
-                    Order details are unavailable. If you completed a
-                    payment, check your email for confirmation.
+                    Order details are unavailable. If you completed a payment,
+                    check your email for confirmation.
                 </div>
             </div>
 
@@ -449,8 +469,7 @@ function printInvoice(): void {
             >
                 <p class="text-xs text-gray-500 print:text-[10px]">
                     Thank you for shopping with
-                    <span class="font-bold text-gray-700">ShopEase</span>!
-                    🎉
+                    <span class="font-bold text-gray-700">ShopEase</span>! 🎉
                 </p>
                 <p class="mt-1 text-[11px] text-gray-400 print:text-[9px]">
                     Questions? Email us at
@@ -462,12 +481,12 @@ function printInvoice(): void {
 
             <!-- Action Buttons -->
             <div
-                class="flex flex-col gap-3 border-t border-gray-100 px-8 py-6 sm:flex-row sm:justify-center md:px-12 print:hidden"
+                class="flex flex-col gap-3 border-t border-gray-100/80 bg-gray-50/50 px-8 py-6 sm:flex-row sm:justify-center md:px-12 print:hidden"
             >
                 <Link
                     v-if="status !== 'success'"
                     :href="shop.checkout.url()"
-                    class="rounded-xl bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 px-6 py-2.5 text-center text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl"
+                    class="transform rounded-xl bg-gradient-to-r from-shop-primary-600 to-shop-primary-700 px-6 py-3 text-center text-sm font-bold text-white shadow-md shadow-shop-primary-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-shop-primary-700 hover:to-shop-primary-800 hover:shadow-lg hover:shadow-shop-primary-600/30"
                 >
                     {{
                         status === 'cancelled'
@@ -477,11 +496,11 @@ function printInvoice(): void {
                 </Link>
                 <Link
                     :href="shop.index.url()"
-                    class="rounded-xl px-6 py-2.5 text-center text-sm font-semibold transition"
+                    class="transform rounded-xl px-6 py-3 text-center text-sm font-bold transition-all duration-300 hover:-translate-y-0.5"
                     :class="
                         status === 'success'
-                            ? 'bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 text-white shadow-lg shadow-shop-primary-600/25 hover:shadow-xl'
-                            : 'bg-white text-gray-700 ring-1 ring-gray-200 hover:bg-gray-50'
+                            ? 'bg-gradient-to-r from-shop-primary-600 to-shop-primary-700 text-white shadow-md shadow-shop-primary-600/25 hover:from-shop-primary-700 hover:to-shop-primary-800 hover:shadow-lg hover:shadow-shop-primary-600/30'
+                            : 'bg-white text-gray-700 ring-1 ring-gray-200 hover:bg-gray-50 hover:shadow-sm'
                     "
                 >
                     Continue Shopping
@@ -489,7 +508,7 @@ function printInvoice(): void {
                 <button
                     v-if="status === 'success' && hasInvoiceDetails"
                     type="button"
-                    class="rounded-xl bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 ring-1 ring-gray-200 transition hover:bg-gray-50"
+                    class="transform rounded-xl bg-white px-6 py-3 text-sm font-bold text-gray-700 ring-1 ring-gray-200 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50 hover:shadow-sm"
                     @click="printInvoice"
                 >
                     Print Invoice

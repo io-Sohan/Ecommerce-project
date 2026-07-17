@@ -3,10 +3,7 @@ import type { InertiaForm } from '@inertiajs/vue3';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import type {
-    AdminStatusOption,
-    OrderUpdateFormData,
-} from '@/types/admin';
+import type { AdminStatusOption, OrderUpdateFormData } from '@/types/admin';
 
 type Props = {
     form: InertiaForm<OrderUpdateFormData>;

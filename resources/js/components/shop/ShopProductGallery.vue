@@ -16,7 +16,9 @@ function selectImage(index: number): void {
 
 <template>
     <div>
-        <div class="overflow-hidden rounded-xl border border-gray-200 bg-gray-100">
+        <div
+            class="overflow-hidden rounded-xl border border-gray-200 bg-gray-100"
+        >
             <img
                 :src="images[activeIndex].full"
                 :alt="alt"

@@ -37,7 +37,10 @@ export function mapServerProductImages(
 }
 
 export function resolveImagePreview(
-    image: Pick<ProductImageFormItem, 'source' | 'image_path' | 'preview_url' | 'file'>,
+    image: Pick<
+        ProductImageFormItem,
+        'source' | 'image_path' | 'preview_url' | 'file'
+    >,
     objectUrl?: string | null,
 ): string | null {
     if (image.source === 'upload') {
@@ -52,7 +55,10 @@ export function resolveImagePreview(
         return `https://images.unsplash.com/${image.image_path}?auto=format&fit=crop&w=400&q=70`;
     }
 
-    if (image.image_path.startsWith('http://') || image.image_path.startsWith('https://')) {
+    if (
+        image.image_path.startsWith('http://') ||
+        image.image_path.startsWith('https://')
+    ) {
         return image.image_path;
     }
 

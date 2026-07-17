@@ -22,12 +22,10 @@ const categories = computed(
     () => (page.props.categories as ShopCategory[] | undefined) ?? [],
 );
 const bestSellingProducts = computed(
-    () =>
-        (page.props.bestSellingProducts as ShopProduct[] | undefined) ?? [],
+    () => (page.props.bestSellingProducts as ShopProduct[] | undefined) ?? [],
 );
 const newCollectionProducts = computed(
-    () =>
-        (page.props.newCollectionProducts as ShopProduct[] | undefined) ?? [],
+    () => (page.props.newCollectionProducts as ShopProduct[] | undefined) ?? [],
 );
 
 const hasStorefrontData = computed(
@@ -62,7 +60,8 @@ const hasStorefrontData = computed(
         class="border-b border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-6 text-center text-sm font-medium text-amber-900"
     >
         Storefront data is not loaded yet. Run
-        <code class="rounded-lg bg-white px-2.5 py-1 font-mono text-xs shadow-sm"
+        <code
+            class="rounded-lg bg-white px-2.5 py-1 font-mono text-xs shadow-sm"
             >php artisan db:seed</code
         >
         to populate demo products, categories, and hero slides.

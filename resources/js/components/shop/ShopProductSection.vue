@@ -2,14 +2,19 @@
 import ShopProductCard from '@/components/shop/ShopProductCard.vue';
 import type { ShopProduct } from '@/types/shop';
 
-const { id, title, description, products, background = 'white' } =
-    defineProps<{
-        id: string;
-        title: string;
-        description: string;
-        products: ShopProduct[];
-        background?: 'white' | 'gray';
-    }>();
+const {
+    id,
+    title,
+    description,
+    products,
+    background = 'white',
+} = defineProps<{
+    id: string;
+    title: string;
+    description: string;
+    products: ShopProduct[];
+    background?: 'white' | 'gray';
+}>();
 </script>
 
 <template>
@@ -21,8 +26,13 @@ const { id, title, description, products, background = 'white' } =
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mb-10 flex items-end justify-between">
                 <div>
-                    <span class="text-xs font-bold tracking-widest text-shop-primary-600 uppercase">Collection</span>
-                    <h2 class="mt-1 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
+                    <span
+                        class="text-xs font-bold tracking-widest text-shop-primary-600 uppercase"
+                        >Collection</span
+                    >
+                    <h2
+                        class="mt-1 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl"
+                    >
                         {{ title }}
                     </h2>
                     <p class="mt-2 text-sm text-gray-500 md:text-base">

@@ -5,9 +5,7 @@ const { sort, setSort, total, openFilterDrawer } = useShopCatalog();
 </script>
 
 <template>
-    <div
-        class="mb-6 flex items-center justify-between gap-3"
-    >
+    <div class="mb-6 flex items-center justify-between gap-3">
         <p class="text-sm text-gray-500">
             <span class="font-bold text-gray-900">{{ total }}</span>
             products found
@@ -39,7 +37,15 @@ const { sort, setSort, total, openFilterDrawer } = useShopCatalog();
                     id="sortSelect"
                     :value="sort"
                     class="h-10 appearance-none rounded-xl bg-white py-0 pr-9 pl-4 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 transition focus:ring-2 focus:ring-shop-primary-500 focus:outline-none"
-                    @change="setSort(($event.target as HTMLSelectElement).value as 'newest' | 'best' | 'price-asc' | 'price-desc')"
+                    @change="
+                        setSort(
+                            ($event.target as HTMLSelectElement).value as
+                                | 'newest'
+                                | 'best'
+                                | 'price-asc'
+                                | 'price-desc',
+                        )
+                    "
                 >
                     <option value="newest">Newest</option>
                     <option value="best">Best Selling</option>

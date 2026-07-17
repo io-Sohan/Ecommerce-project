@@ -41,15 +41,13 @@ const form = useForm<CategoryFormData>({
 });
 
 function submit(): void {
-    form
-        .transform((data) => ({
-            ...data,
-            _method: 'put',
-        }))
-        .post(CategoryController.update.url(props.category.id), {
-            forceFormData: true,
-            preserveScroll: true,
-        });
+    form.transform((data) => ({
+        ...data,
+        _method: 'put',
+    })).post(CategoryController.update.url(props.category.id), {
+        forceFormData: true,
+        preserveScroll: true,
+    });
 }
 </script>
 

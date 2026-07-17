@@ -52,9 +52,7 @@ function formatDate(value: string): string {
 <template>
     <Head title="Wishlists" />
 
-    <div
-        class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6"
-    >
+    <div class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6">
         <Heading
             title="Wishlists"
             description="View customer wishlist items across the store"
@@ -101,7 +99,7 @@ function formatDate(value: string): string {
                         <tr
                             v-for="wishlist in wishlists"
                             :key="wishlist.id"
-                            class="border-b border-border/30 last:border-b-0 transition-colors hover:bg-muted/20"
+                            class="border-b border-border/30 transition-colors last:border-b-0 hover:bg-muted/20"
                         >
                             <td class="px-4 py-3">
                                 <p class="font-medium">
@@ -164,9 +162,7 @@ function formatDate(value: string): string {
                                 colspan="5"
                                 class="px-4 py-10 text-center text-muted-foreground"
                             >
-                                <Heart
-                                    class="mx-auto mb-2 size-8 opacity-40"
-                                />
+                                <Heart class="mx-auto mb-2 size-8 opacity-40" />
                                 No wishlist items found.
                             </td>
                         </tr>

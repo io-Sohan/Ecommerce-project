@@ -38,13 +38,17 @@ function submit(): void {
 <template>
     <Head title="Create coupon" />
 
-    <div class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
+    <div
+        class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
+    >
         <Heading
             title="Create coupon"
             description="Add a new discount coupon to your store"
         />
 
-        <div class="max-w-2xl rounded-xl border border-sidebar-border/70 p-6 dark:border-sidebar-border">
+        <div
+            class="max-w-2xl rounded-xl border border-sidebar-border/70 p-6 dark:border-sidebar-border"
+        >
             <form class="space-y-6" @submit.prevent="submit">
                 <CouponForm :form="form" />
 

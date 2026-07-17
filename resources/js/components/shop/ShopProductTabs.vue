@@ -102,23 +102,23 @@ function submitReview(event: Event): void {
                     :html="product.description"
                     class="max-w-prose text-gray-600 md:text-base"
                 />
-                    <h3
-                        v-if="product.features.length > 0"
-                        class="pt-2 text-base font-semibold text-gray-900"
+                <h3
+                    v-if="product.features.length > 0"
+                    class="pt-2 text-base font-semibold text-gray-900"
+                >
+                    Key Features
+                </h3>
+                <ul
+                    v-if="product.features.length > 0"
+                    class="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-gray-600 md:text-base"
+                >
+                    <li
+                        v-for="(feature, index) in product.features"
+                        :key="index"
                     >
-                        Key Features
-                    </h3>
-                    <ul
-                        v-if="product.features.length > 0"
-                        class="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-gray-600 md:text-base"
-                    >
-                        <li
-                            v-for="(feature, index) in product.features"
-                            :key="index"
-                        >
-                            {{ feature }}
-                        </li>
-                    </ul>
+                        {{ feature }}
+                    </li>
+                </ul>
             </div>
 
             <div
@@ -197,7 +197,7 @@ function submitReview(event: Event): void {
                                                 {{ review.name }}
                                                 <span
                                                     v-if="review.verified"
-                                                    class="ml-1 align-middle rounded bg-green-50 px-1.5 py-0.5 text-[10px] font-medium text-green-700"
+                                                    class="ml-1 rounded bg-green-50 px-1.5 py-0.5 align-middle text-[10px] font-medium text-green-700"
                                                     >Verified</span
                                                 >
                                             </p>

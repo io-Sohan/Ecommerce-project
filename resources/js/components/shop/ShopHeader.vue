@@ -21,9 +21,7 @@ const isCartPage = computed(() => page.component === 'shop/Cart');
 const isWishlistPage = computed(() => page.component === 'shop/Wishlist');
 const isCheckoutPage = computed(() => page.component === 'shop/Checkout');
 const isAuthenticated = computed(() => !!page.props.auth?.user);
-const isAdmin = computed(
-    () => page.props.auth?.user?.role === 'admin',
-);
+const isAdmin = computed(() => page.props.auth?.user?.role === 'admin');
 const showMobileSearch = ref(false);
 
 function toggleMobileSearch(): void {
@@ -40,9 +38,7 @@ function handleSearchInput(event: Event): void {
 </script>
 
 <template>
-    <header
-        class="sticky top-0 z-50 border-b border-gray-200 bg-white"
-    >
+    <header class="sticky top-0 z-50 border-b border-gray-200 bg-white">
         <!-- Top accent bar -->
         <div class="h-1 w-full bg-shop-primary-600" />
 
@@ -294,10 +290,7 @@ function handleSearchInput(event: Event): void {
                 </div>
             </div>
 
-            <div
-                v-show="showMobileSearch"
-                class="pb-3 md:hidden"
-            >
+            <div v-show="showMobileSearch" class="pb-3 md:hidden">
                 <label for="searchMobileHeader" class="sr-only"
                     >Search products</label
                 >

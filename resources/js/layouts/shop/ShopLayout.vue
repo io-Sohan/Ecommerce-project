@@ -38,7 +38,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="font-shop bg-white text-gray-600 antialiased">
+    <div class="bg-white font-shop text-gray-600 antialiased">
         <a
             href="#main"
             class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:text-gray-900 focus:shadow-lg focus:ring-2 focus:ring-shop-primary-600"

@@ -19,11 +19,11 @@ export function useShopWishlist() {
             },
     );
 
-    const isAuthenticated = computed(
-        () => !!inertiaPage.props.auth?.user,
-    );
+    const isAuthenticated = computed(() => !!inertiaPage.props.auth?.user);
 
-    const wishlist = computed((): ShopWishlistItem[] => serverWishlist.value.items);
+    const wishlist = computed(
+        (): ShopWishlistItem[] => serverWishlist.value.items,
+    );
     const wishCount = computed((): number => serverWishlist.value.count);
     const wishlistedProductIds = computed(
         (): number[] => serverWishlist.value.productIds,

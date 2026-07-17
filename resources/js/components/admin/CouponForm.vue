@@ -40,7 +40,9 @@ defineProps<{
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="flat">Flat (৳)</SelectItem>
-                        <SelectItem value="percentage">Percentage (%)</SelectItem>
+                        <SelectItem value="percentage"
+                            >Percentage (%)</SelectItem
+                        >
                     </SelectContent>
                 </Select>
                 <InputError :message="form.errors.discount_type" />
@@ -93,11 +95,7 @@ defineProps<{
 
         <div class="space-y-2">
             <Label for="expires_at">Expiry Date</Label>
-            <Input
-                id="expires_at"
-                v-model="form.expires_at"
-                type="date"
-            />
+            <Input id="expires_at" v-model="form.expires_at" type="date" />
             <InputError :message="form.errors.expires_at" />
         </div>
 

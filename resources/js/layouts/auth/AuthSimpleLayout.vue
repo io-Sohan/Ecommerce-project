@@ -37,9 +37,7 @@ defineProps<{
                             </svg>
                         </span>
                         <span class="text-xl font-bold text-foreground">
-                            Shop<span class="text-shop-primary-600"
-                                >Ease</span
-                            >
+                            Shop<span class="text-shop-primary-600">Ease</span>
                         </span>
                         <span class="sr-only">{{ title }}</span>
                     </Link>

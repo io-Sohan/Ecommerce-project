@@ -43,11 +43,10 @@ setLayoutProps({
     <div
         class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
     >
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <Heading
-                :title="category.name"
-                description="Category details"
-            />
+        <div
+            class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        >
+            <Heading :title="category.name" description="Category details" />
 
             <Button as-child>
                 <Link :href="edit(category.id)">
@@ -96,9 +95,7 @@ setLayoutProps({
                     </div>
 
                     <div class="grid gap-1">
-                        <p class="text-sm text-muted-foreground">
-                            Description
-                        </p>
+                        <p class="text-sm text-muted-foreground">Description</p>
                         <p class="font-medium">
                             {{
                                 category.description ||
@@ -128,23 +125,17 @@ setLayoutProps({
                             <p class="text-sm text-muted-foreground">Status</p>
                             <Badge
                                 :variant="
-                                    category.is_active
-                                        ? 'default'
-                                        : 'secondary'
+                                    category.is_active ? 'default' : 'secondary'
                                 "
                             >
-                                {{
-                                    category.is_active ? 'Active' : 'Inactive'
-                                }}
+                                {{ category.is_active ? 'Active' : 'Inactive' }}
                             </Badge>
                         </div>
                     </div>
 
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div class="grid gap-1">
-                            <p class="text-sm text-muted-foreground">
-                                Created
-                            </p>
+                            <p class="text-sm text-muted-foreground">Created</p>
                             <p class="font-medium">
                                 {{
                                     new Date(
@@ -154,9 +145,7 @@ setLayoutProps({
                             </p>
                         </div>
                         <div class="grid gap-1">
-                            <p class="text-sm text-muted-foreground">
-                                Updated
-                            </p>
+                            <p class="text-sm text-muted-foreground">Updated</p>
                             <p class="font-medium">
                                 {{
                                     new Date(

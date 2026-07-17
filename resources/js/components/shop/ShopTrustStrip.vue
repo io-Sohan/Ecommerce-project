@@ -1,13 +1,12 @@
 <template>
-    <section
-        class="bg-white"
-        aria-label="Why shop with us"
-    >
+    <section class="bg-white" aria-label="Why shop with us">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div
+            <div
                 class="grid grid-cols-2 gap-4 py-8 md:grid-cols-4 md:gap-6 md:py-10"
             >
-                <div class="flex items-center gap-4 rounded-2xl bg-shop-primary-50 p-4">
+                <div
+                    class="flex items-center gap-4 rounded-2xl bg-shop-primary-50 p-4"
+                >
                     <span
                         class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-shop-primary-600 text-white shadow-lg"
                     >
@@ -34,7 +33,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4 rounded-2xl bg-gray-100 p-4">
+                <div
+                    class="flex items-center gap-4 rounded-2xl bg-gray-100 p-4"
+                >
                     <span
                         class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-shop-dark text-white shadow-lg"
                     >
@@ -61,7 +62,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4 rounded-2xl bg-shop-primary-50 p-4">
+                <div
+                    class="flex items-center gap-4 rounded-2xl bg-shop-primary-50 p-4"
+                >
                     <span
                         class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-shop-primary-700 text-white shadow-lg"
                     >
@@ -88,7 +91,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4 rounded-2xl bg-gray-100 p-4">
+                <div
+                    class="flex items-center gap-4 rounded-2xl bg-gray-100 p-4"
+                >
                     <span
                         class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-shop-dark text-white shadow-lg"
                     >

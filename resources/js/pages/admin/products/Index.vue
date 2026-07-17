@@ -43,14 +43,11 @@ defineOptions({
 <template>
     <Head title="Products" />
 
-    <div
-        class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6"
-    >
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <Heading
-                title="Products"
-                description="Manage your store catalog"
-            />
+    <div class="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-6">
+        <div
+            class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        >
+            <Heading title="Products" description="Manage your store catalog" />
 
             <Button as-child>
                 <Link :href="create()">
@@ -83,7 +80,7 @@ defineOptions({
                         <tr
                             v-for="product in products"
                             :key="product.id"
-                            class="border-b border-border/30 last:border-b-0 transition-colors hover:bg-muted/20"
+                            class="border-b border-border/30 transition-colors last:border-b-0 hover:bg-muted/20"
                         >
                             <td class="px-4 py-3">
                                 <div
@@ -98,7 +95,9 @@ defineOptions({
                                 </div>
                             </td>
                             <td class="px-4 py-3">
-                                <div class="font-medium">{{ product.name }}</div>
+                                <div class="font-medium">
+                                    {{ product.name }}
+                                </div>
                                 <div class="text-xs text-muted-foreground">
                                     {{ product.slug }}
                                 </div>

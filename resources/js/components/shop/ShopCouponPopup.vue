@@ -74,7 +74,7 @@ onUnmounted(() => {
         >
             <div
                 v-if="visible"
-                class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+                class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
                 @click.self="dismiss"
             >
                 <Transition
@@ -97,35 +97,60 @@ onUnmounted(() => {
                             class="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-gray-600 transition hover:bg-black/20 hover:text-gray-900"
                             @click="dismiss"
                         >
-                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            <svg
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
                             </svg>
                         </button>
 
                         <!-- Header -->
-                        <div class="bg-shop-primary-600 px-6 py-8 text-center text-white">
-                            <div class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-white/20 text-3xl backdrop-blur-sm">
+                        <div
+                            class="bg-shop-primary-600 px-6 py-8 text-center text-white"
+                        >
+                            <div
+                                class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-white/20 text-3xl backdrop-blur-sm"
+                            >
                                 🎉
                             </div>
-                            <h2 class="text-xl font-extrabold">Special Offer!</h2>
+                            <h2 class="text-xl font-extrabold">
+                                Special Offer!
+                            </h2>
                             <p class="mt-1 text-sm text-white/80">
                                 Use these coupon codes to save on your order
                             </p>
                         </div>
 
                         <!-- Coupons list -->
-                        <div class="max-h-64 space-y-3 overflow-y-auto px-6 py-5">
+                        <div
+                            class="max-h-64 space-y-3 overflow-y-auto px-6 py-5"
+                        >
                             <div
                                 v-for="coupon in coupons"
                                 :key="coupon.code"
                                 class="flex items-center justify-between rounded-xl border-2 border-dashed border-shop-primary-200 bg-shop-primary-50 px-4 py-3"
                             >
                                 <div>
-                                    <p class="text-lg font-extrabold text-shop-primary-700">
+                                    <p
+                                        class="text-lg font-extrabold text-shop-primary-700"
+                                    >
                                         {{ formatDiscount(coupon) }}
                                     </p>
-                                    <p v-if="coupon.min_order_amount > 0" class="text-xs text-gray-500">
-                                        Min. order ৳{{ coupon.min_order_amount }}
+                                    <p
+                                        v-if="coupon.min_order_amount > 0"
+                                        class="text-xs text-gray-500"
+                                    >
+                                        Min. order ৳{{
+                                            coupon.min_order_amount
+                                        }}
                                     </p>
                                 </div>
                                 <button
@@ -134,16 +159,30 @@ onUnmounted(() => {
                                     :title="`Copy code: ${coupon.code}`"
                                     @click="copyCode(coupon.code)"
                                 >
-                                    <span class="font-mono tracking-wider">{{ coupon.code }}</span>
-                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                    <span class="font-mono tracking-wider">{{
+                                        coupon.code
+                                    }}</span>
+                                    <svg
+                                        class="h-4 w-4"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                        />
                                     </svg>
                                 </button>
                             </div>
                         </div>
 
                         <!-- Footer -->
-                        <div class="border-t border-gray-100 px-6 py-4 text-center">
+                        <div
+                            class="border-t border-gray-100 px-6 py-4 text-center"
+                        >
                             <button
                                 type="button"
                                 class="w-full rounded-xl bg-shop-primary-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-shop-primary-700 hover:shadow-xl"

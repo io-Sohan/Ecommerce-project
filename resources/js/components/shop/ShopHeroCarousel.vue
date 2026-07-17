@@ -58,13 +58,15 @@ function onTouchEnd(event: TouchEvent): void {
                     class="h-full w-full object-cover"
                 />
                 <!-- Dark overlay for better contrast -->
-                <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+                <div
+                    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"
+                />
             </div>
 
             <button
                 type="button"
                 aria-label="Previous slide"
-                class="absolute top-1/2 left-5 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/90 text-gray-800 shadow-xl ring-1 ring-black/5 transition duration-200 hover:bg-white hover:shadow-2xl hover:scale-105 focus:ring-2 focus:ring-shop-primary-600 focus:outline-none md:flex"
+                class="absolute top-1/2 left-5 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/90 text-gray-800 shadow-xl ring-1 ring-black/5 transition duration-200 hover:scale-105 hover:bg-white hover:shadow-2xl focus:ring-2 focus:ring-shop-primary-600 focus:outline-none md:flex"
                 @click="
                     prev();
                     startAuto();
@@ -87,7 +89,7 @@ function onTouchEnd(event: TouchEvent): void {
             <button
                 type="button"
                 aria-label="Next slide"
-                class="absolute top-1/2 right-5 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/90 text-gray-800 shadow-xl ring-1 ring-black/5 transition duration-200 hover:bg-white hover:shadow-2xl hover:scale-105 focus:ring-2 focus:ring-shop-primary-600 focus:outline-none md:flex"
+                class="absolute top-1/2 right-5 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/90 text-gray-800 shadow-xl ring-1 ring-black/5 transition duration-200 hover:scale-105 hover:bg-white hover:shadow-2xl focus:ring-2 focus:ring-shop-primary-600 focus:outline-none md:flex"
                 @click="
                     next();
                     startAuto();

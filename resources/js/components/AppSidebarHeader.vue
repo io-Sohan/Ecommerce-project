@@ -26,7 +26,9 @@ const auth = computed(() => page.props.auth);
         class="flex h-16 shrink-0 items-center justify-between gap-4 border-b border-border/60 bg-card px-6 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 md:px-6"
     >
         <div class="flex items-center gap-3">
-            <SidebarTrigger class="-ml-1 text-muted-foreground hover:text-foreground" />
+            <SidebarTrigger
+                class="-ml-1 text-muted-foreground hover:text-foreground"
+            />
             <div
                 v-if="breadcrumbs && breadcrumbs.length > 0"
                 class="hidden md:block"
@@ -46,7 +48,9 @@ const auth = computed(() => page.props.auth);
             </button>
 
             <div class="hidden items-center gap-2.5 sm:flex">
-                <Avatar class="size-8 rounded-lg shadow-sm ring-2 ring-indigo-500/20">
+                <Avatar
+                    class="size-8 rounded-lg shadow-sm ring-2 ring-indigo-500/20"
+                >
                     <AvatarImage
                         v-if="auth.user.avatar"
                         :src="auth.user.avatar"

@@ -120,7 +120,11 @@ function moveImage(clientKey: string, direction: -1 | 1): void {
     );
     const targetIndex = currentIndex + direction;
 
-    if (currentIndex === -1 || targetIndex < 0 || targetIndex >= images.length) {
+    if (
+        currentIndex === -1 ||
+        targetIndex < 0 ||
+        targetIndex >= images.length
+    ) {
         return;
     }
 
@@ -147,7 +151,9 @@ function setImageSource(
     clientKey: string,
     source: ProductFormData['images'][number]['source'],
 ): void {
-    const image = props.form.images.find((item) => item.client_key === clientKey);
+    const image = props.form.images.find(
+        (item) => item.client_key === clientKey,
+    );
 
     if (!image) {
         return;
@@ -159,7 +165,9 @@ function setImageSource(
 
 function onImageFileChange(clientKey: string, event: Event): void {
     const target = event.target as HTMLInputElement;
-    const image = props.form.images.find((item) => item.client_key === clientKey);
+    const image = props.form.images.find(
+        (item) => item.client_key === clientKey,
+    );
 
     if (!image) {
         return;
@@ -176,7 +184,9 @@ function imageError(field: string, index: number): string | undefined {
 
 <template>
     <section class="grid gap-4">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div
+            class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+        >
             <div>
                 <h3 class="text-sm font-medium text-muted-foreground">
                     Product images
@@ -188,7 +198,12 @@ function imageError(field: string, index: number): string | undefined {
             </div>
 
             <div class="flex flex-wrap gap-2">
-                <Button type="button" variant="outline" size="sm" @click="addUrlImage">
+                <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    @click="addUrlImage"
+                >
                     <Plus class="size-4" />
                     Add URL image
                 </Button>
@@ -210,7 +225,10 @@ function imageError(field: string, index: number): string | undefined {
 
         <InputError :message="form.errors.images" />
 
-        <div v-if="sortedImages.length === 0" class="rounded-lg border border-dashed p-8 text-center text-sm text-muted-foreground">
+        <div
+            v-if="sortedImages.length === 0"
+            class="rounded-lg border border-dashed p-8 text-center text-sm text-muted-foreground"
+        >
             No images added yet. Add a URL image or upload files.
         </div>
 
@@ -267,7 +285,9 @@ function imageError(field: string, index: number): string | undefined {
                                         ? 'border-primary bg-primary text-primary-foreground'
                                         : 'border-input bg-background hover:bg-muted'
                                 "
-                                @click="setImageSource(image.client_key, 'upload')"
+                                @click="
+                                    setImageSource(image.client_key, 'upload')
+                                "
                             >
                                 Upload
                             </button>
@@ -300,7 +320,9 @@ function imageError(field: string, index: number): string | undefined {
                                 :id="`image-file-${image.client_key}`"
                                 type="file"
                                 accept="image/jpeg,image/jpg,image/png,image/webp"
-                                @change="onImageFileChange(image.client_key, $event)"
+                                @change="
+                                    onImageFileChange(image.client_key, $event)
+                                "
                             />
                             <p class="text-xs text-muted-foreground">
                                 JPG, PNG, or WebP up to 2 MB.
@@ -352,7 +374,9 @@ function imageError(field: string, index: number): string | undefined {
                                 type="button"
                                 variant="outline"
                                 size="sm"
-                                :disabled="displayIndex === sortedImages.length - 1"
+                                :disabled="
+                                    displayIndex === sortedImages.length - 1
+                                "
                                 @click="moveImage(image.client_key, 1)"
                             >
                                 <ArrowDown class="size-4" />
@@ -360,7 +384,9 @@ function imageError(field: string, index: number): string | undefined {
                             </Button>
                             <Button
                                 type="button"
-                                :variant="image.is_primary ? 'default' : 'outline'"
+                                :variant="
+                                    image.is_primary ? 'default' : 'outline'
+                                "
                                 size="sm"
                                 @click="setPrimary(image.client_key)"
                             >

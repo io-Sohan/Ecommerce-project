@@ -35,7 +35,9 @@ const {
             >
                 <h2 class="text-lg font-extrabold text-gray-900">
                     Your Cart
-                    <span class="ml-1 text-sm font-medium text-gray-400">({{ cartQty }})</span>
+                    <span class="ml-1 text-sm font-medium text-gray-400"
+                        >({{ cartQty }})</span
+                    >
                 </h2>
                 <button
                     type="button"
@@ -80,7 +82,9 @@ const {
                         />
                     </svg>
                 </div>
-                <p class="text-base font-bold text-gray-900">Your cart is empty</p>
+                <p class="text-base font-bold text-gray-900">
+                    Your cart is empty
+                </p>
                 <p class="mt-1.5 text-sm text-gray-500">
                     Discover products and add them to your cart.
                 </p>
@@ -110,9 +114,7 @@ const {
                             />
                         </div>
                         <div class="min-w-0 flex-1">
-                            <div
-                                class="flex items-start justify-between gap-2"
-                            >
+                            <div class="flex items-start justify-between gap-2">
                                 <p
                                     class="line-clamp-2 text-sm font-semibold text-gray-900"
                                 >
@@ -150,7 +152,12 @@ const {
                                         aria-label="Decrease"
                                         class="inline-flex h-8 w-8 items-center justify-center rounded-l-xl text-gray-500 transition hover:bg-gray-50 disabled:opacity-40"
                                         :disabled="item.qty <= 1"
-                                        @click="updateQty(item.productId, item.qty - 1)"
+                                        @click="
+                                            updateQty(
+                                                item.productId,
+                                                item.qty - 1,
+                                            )
+                                        "
                                     >
                                         <svg
                                             class="h-3.5 w-3.5"
@@ -174,7 +181,12 @@ const {
                                         type="button"
                                         aria-label="Increase"
                                         class="inline-flex h-8 w-8 items-center justify-center rounded-r-xl text-gray-500 transition hover:bg-gray-50"
-                                        @click="updateQty(item.productId, item.qty + 1)"
+                                        @click="
+                                            updateQty(
+                                                item.productId,
+                                                item.qty + 1,
+                                            )
+                                        "
                                     >
                                         <svg
                                             class="h-3.5 w-3.5"
@@ -191,9 +203,7 @@ const {
                                         </svg>
                                     </button>
                                 </div>
-                                <span
-                                    class="text-sm font-bold text-gray-900"
-                                >
+                                <span class="text-sm font-bold text-gray-900">
                                     {{ formatTaka(item.price * item.qty) }}
                                 </span>
                             </div>
@@ -203,7 +213,9 @@ const {
 
                 <div class="shrink-0 border-t border-gray-100 p-5">
                     <div class="mb-1 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-500">Subtotal</span>
+                        <span class="text-sm font-medium text-gray-500"
+                            >Subtotal</span
+                        >
                         <span class="text-xl font-extrabold text-gray-900">{{
                             formatTaka(cartSubtotal)
                         }}</span>
