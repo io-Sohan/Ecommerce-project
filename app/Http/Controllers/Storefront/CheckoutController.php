@@ -9,6 +9,7 @@ use App\Services\OrderService;
 use App\Services\SslcommerzPaymentService;
 use App\Services\StripeCheckoutService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
@@ -54,12 +55,13 @@ class CheckoutController extends Controller
 
         if ($validated['payment_method'] === 'sslcommerz') {
             $order = $this->orderService->placeSslcommerzOrder($validated);
-            $result = $this->paymentService->initiate($order);
 
-            if ($result['gateway_url'] === null) {
+            try {
+                $result = $this->paymentService->initiate($order);
+            } catch (ValidationException $e) {
                 return redirect()
                     ->route('shop.payments.failed', ['order' => $order->order_number])
-                    ->with('error', $result['error'] ?? 'Unable to start online payment. Please try again.');
+                    ->with('error', collect($e->errors())->flatten()->first() ?? 'Unable to start online payment. Please try again.');
             }
 
             return Inertia::location($result['gateway_url']);
