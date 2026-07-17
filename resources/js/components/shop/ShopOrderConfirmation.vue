@@ -391,7 +391,7 @@ function printInvoice(): void {
                         </span>
                     </div>
                     <div
-                        class="from-shop-primary-950 via-shop-primary-900 shadow-shop-primary-900/10 mt-3 flex items-center justify-between rounded-xl bg-gradient-to-r to-shop-primary-800 px-4 py-3.5 text-white shadow-md print:rounded-none print:from-gray-800 print:to-gray-800 print:px-3 print:py-2 print:shadow-none"
+                        class="mt-3 flex items-center justify-between rounded-xl bg-gradient-to-r from-shop-primary-800 via-shop-primary-700 to-shop-primary-600 px-4 py-3.5 text-white shadow-md shadow-shop-primary-700/15 print:rounded-none print:from-gray-800 print:to-gray-800 print:px-3 print:py-2 print:shadow-none"
                     >
                         <span
                             class="text-sm font-extrabold tracking-wide print:text-xs"
