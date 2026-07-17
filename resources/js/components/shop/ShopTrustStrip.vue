@@ -4,12 +4,12 @@
         aria-label="Why shop with us"
     >
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div
+        <div
                 class="grid grid-cols-2 gap-4 py-8 md:grid-cols-4 md:gap-6 md:py-10"
             >
-                <div class="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-shop-primary-50 to-purple-50 p-4">
+                <div class="flex items-center gap-4 rounded-2xl bg-shop-primary-50 p-4">
                     <span
-                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-shop-primary-600 to-purple-600 text-white shadow-lg shadow-shop-primary-600/20"
+                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-shop-primary-600 text-white shadow-lg"
                     >
                         <svg
                             class="h-5 w-5"
@@ -34,9 +34,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 p-4">
+                <div class="flex items-center gap-4 rounded-2xl bg-gray-100 p-4">
                     <span
-                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 text-white shadow-lg shadow-green-500/20"
+                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-shop-dark text-white shadow-lg"
                     >
                         <svg
                             class="h-5 w-5"
@@ -61,9 +61,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 p-4">
+                <div class="flex items-center gap-4 rounded-2xl bg-shop-primary-50 p-4">
                     <span
-                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/20"
+                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-shop-primary-700 text-white shadow-lg"
                     >
                         <svg
                             class="h-5 w-5"
@@ -88,9 +88,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-4">
+                <div class="flex items-center gap-4 rounded-2xl bg-gray-100 p-4">
                     <span
-                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/20"
+                        class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-shop-dark text-white shadow-lg"
                     >
                         <svg
                             class="h-5 w-5"

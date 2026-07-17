@@ -71,7 +71,7 @@ function handleToggleWishlist(): void {
             <div class="absolute top-3 left-3 flex flex-col gap-1.5">
                 <span
                     v-if="product.tag"
-                    class="rounded-lg bg-gradient-to-r from-shop-primary-600 to-purple-600 px-2.5 py-1 text-[10px] font-bold tracking-wider text-white uppercase shadow-md"
+                    class="rounded-lg bg-shop-primary-600 px-2.5 py-1 text-[10px] font-bold tracking-wider text-white uppercase shadow-md"
                     >{{ product.tag }}</span
                 >
                 <span
@@ -181,7 +181,7 @@ function handleToggleWishlist(): void {
                 <button
                     type="button"
                     :disabled="!product.inStock"
-                    class="flex-1 rounded-xl bg-orange-500 px-3 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-orange-600 active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50"
+                    class="flex-1 rounded-xl bg-shop-dark px-3 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-shop-dark-light active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50"
                     @click="handleBuyNow"
                 >
                     Buy Now

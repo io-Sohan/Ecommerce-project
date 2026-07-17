@@ -14,7 +14,7 @@ const { variant = 'light' } = defineProps<{
         aria-label="ShopEase home"
     >
         <span
-            class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-shop-primary-600 to-purple-600 text-white shadow-lg shadow-shop-primary-600/25 transition-transform duration-200 group-hover:scale-105"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-shop-primary-600 text-white shadow-lg transition-transform duration-200 group-hover:scale-105"
         >
             <svg
                 class="h-5 w-5"

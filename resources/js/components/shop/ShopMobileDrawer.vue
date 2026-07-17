@@ -174,7 +174,7 @@ function handleSearchInput(event: Event): void {
                         </Link>
                         <Link
                             :href="register()"
-                            class="rounded-xl bg-gradient-to-r from-shop-primary-600 to-purple-600 px-4 py-3 text-center text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25"
+                            class="rounded-xl bg-shop-primary-600 px-4 py-3 text-center text-sm font-bold text-white shadow-lg hover:bg-shop-primary-700"
                             @click="closeMobileMenu"
                         >
                             Create Account

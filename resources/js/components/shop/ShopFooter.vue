@@ -10,8 +10,8 @@ const year = computed(() => new Date().getFullYear());
 
 <template>
     <footer class="bg-shop-dark text-gray-300">
-        <!-- Gradient divider -->
-        <div class="h-1 w-full bg-gradient-to-r from-shop-primary-600 via-purple-500 to-shop-primary-600" />
+        <!-- Accent divider -->
+        <div class="h-1 w-full bg-shop-primary-600" />
 
         <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
             <div class="grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-8">
@@ -41,7 +41,7 @@ const year = computed(() => new Date().getFullYear());
                         <a
                             href="#"
                             aria-label="Instagram"
-                            class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-gray-400 transition duration-200 hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 hover:text-white hover:shadow-lg"
+                            class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-gray-400 transition duration-200 hover:bg-shop-primary-600 hover:text-white hover:shadow-lg"
                         >
                             <svg
                                 class="h-4 w-4"

@@ -64,7 +64,7 @@ const {
                 class="flex flex-1 flex-col items-center justify-center px-6 text-center"
             >
                 <div
-                    class="mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-shop-primary-50 to-purple-50 text-shop-primary-400"
+                    class="mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-shop-primary-50 text-shop-primary-600"
                 >
                     <svg
                         class="h-9 w-9"
@@ -86,7 +86,7 @@ const {
                 </p>
                 <button
                     type="button"
-                    class="mt-6 rounded-xl bg-gradient-to-r from-shop-primary-600 to-purple-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl"
+                    class="mt-6 rounded-xl bg-shop-primary-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-shop-primary-700 hover:shadow-xl"
                     @click="closeCart"
                 >
                     Continue shopping
@@ -220,7 +220,7 @@ const {
                         >
                         <Link
                             :href="shop.checkout()"
-                            class="rounded-xl bg-gradient-to-r from-shop-primary-600 to-purple-600 px-4 py-2.5 text-center text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl"
+                            class="rounded-xl bg-shop-primary-600 px-4 py-2.5 text-center text-sm font-bold text-white shadow-lg transition hover:bg-shop-primary-700 hover:shadow-xl"
                             @click="closeCart"
                             >Checkout</Link
                         >

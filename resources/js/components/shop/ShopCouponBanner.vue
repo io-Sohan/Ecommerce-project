@@ -48,7 +48,7 @@ function copyCode(code: string): void {
 <template>
     <div
         v-if="coupons.length > 0 && !dismissed"
-        class="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white"
+        class="relative bg-shop-primary-600 text-white"
     >
         <div class="mx-auto flex max-w-7xl items-center justify-center gap-3 px-4 py-2.5 text-center text-sm sm:px-6">
             <button

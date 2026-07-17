@@ -41,10 +41,10 @@ function handleSearchInput(event: Event): void {
 
 <template>
     <header
-        class="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-xl"
+        class="sticky top-0 z-50 border-b border-gray-200 bg-white"
     >
         <!-- Top accent bar -->
-        <div class="h-1 w-full bg-gradient-to-r from-shop-primary-600 via-purple-500 to-shop-primary-600" />
+        <div class="h-1 w-full bg-shop-primary-600" />
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-[4.25rem] items-center justify-between gap-4">
@@ -237,8 +237,8 @@ function handleSearchInput(event: Event): void {
                         class="relative inline-flex h-10 w-10 items-center justify-center rounded-xl transition focus:ring-2 focus:ring-shop-primary-600 focus:outline-none"
                         :class="
                             isWishlistPage
-                                ? 'bg-red-50 text-red-500'
-                                : 'text-gray-600 hover:bg-red-50 hover:text-red-500'
+                                ? 'bg-shop-primary-50 text-shop-primary-600'
+                                : 'text-gray-600 hover:bg-shop-primary-50 hover:text-shop-primary-600'
                         "
                     >
                         <svg
@@ -256,7 +256,7 @@ function handleSearchInput(event: Event): void {
                         </svg>
                         <span
                             v-if="wishCount > 0"
-                            class="absolute -top-0.5 -right-0.5 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-gradient-to-r from-red-500 to-pink-500 px-1 text-[10px] font-bold text-white shadow-sm"
+                            class="absolute -top-0.5 -right-0.5 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-shop-primary-600 px-1 text-[10px] font-bold text-white shadow-sm"
                         >
                             {{ wishCount }}
                         </span>
@@ -286,7 +286,7 @@ function handleSearchInput(event: Event): void {
                         </svg>
                         <span
                             v-if="cartQty > 0"
-                            class="absolute -top-0.5 -right-0.5 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-gradient-to-r from-shop-primary-600 to-purple-600 px-1 text-[10px] font-bold text-white shadow-sm"
+                            class="absolute -top-0.5 -right-0.5 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-shop-primary-600 px-1 text-[10px] font-bold text-white shadow-sm"
                         >
                             {{ cartQty }}
                         </span>

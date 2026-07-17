@@ -103,7 +103,7 @@ onUnmounted(() => {
                         </button>
 
                         <!-- Header -->
-                        <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-6 py-8 text-center text-white">
+                        <div class="bg-shop-primary-600 px-6 py-8 text-center text-white">
                             <div class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-white/20 text-3xl backdrop-blur-sm">
                                 🎉
                             </div>
@@ -118,10 +118,10 @@ onUnmounted(() => {
                             <div
                                 v-for="coupon in coupons"
                                 :key="coupon.code"
-                                class="flex items-center justify-between rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/50 px-4 py-3"
+                                class="flex items-center justify-between rounded-xl border-2 border-dashed border-shop-primary-200 bg-shop-primary-50 px-4 py-3"
                             >
                                 <div>
-                                    <p class="text-lg font-extrabold text-indigo-700">
+                                    <p class="text-lg font-extrabold text-shop-primary-700">
                                         {{ formatDiscount(coupon) }}
                                     </p>
                                     <p v-if="coupon.min_order_amount > 0" class="text-xs text-gray-500">
@@ -130,7 +130,7 @@ onUnmounted(() => {
                                 </div>
                                 <button
                                     type="button"
-                                    class="flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-2 text-sm font-bold text-white transition hover:bg-indigo-700"
+                                    class="flex items-center gap-1.5 rounded-lg bg-shop-primary-600 px-3 py-2 text-sm font-bold text-white transition hover:bg-shop-primary-700"
                                     :title="`Copy code: ${coupon.code}`"
                                     @click="copyCode(coupon.code)"
                                 >
@@ -146,7 +146,7 @@ onUnmounted(() => {
                         <div class="border-t border-gray-100 px-6 py-4 text-center">
                             <button
                                 type="button"
-                                class="w-full rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:shadow-xl"
+                                class="w-full rounded-xl bg-shop-primary-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-shop-primary-700 hover:shadow-xl"
                                 @click="dismiss"
                             >
                                 Start Shopping 🛍️
