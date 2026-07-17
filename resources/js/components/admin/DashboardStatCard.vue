@@ -37,11 +37,11 @@ function changeClass(percent: number | null | undefined): string {
 
 <template>
     <div
-        class="group relative overflow-hidden rounded-xl border border-border/60 bg-card p-5 shadow-sm transition-all duration-200 hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-800/50"
+        class="group relative overflow-hidden rounded-xl border border-border/60 bg-card p-5 shadow-sm transition-all duration-200 hover:shadow-md hover:border-shop-primary-200 dark:hover:border-shop-primary-800/50"
     >
         <!-- Subtle gradient accent on hover -->
         <div
-            class="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-indigo-500 via-indigo-400 to-indigo-600 opacity-0 transition-opacity group-hover:opacity-100"
+            class="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-shop-primary-600 via-shop-primary-500 to-shop-primary-700 opacity-0 transition-opacity group-hover:opacity-100"
         />
 
         <div class="flex items-start justify-between gap-4">
@@ -56,7 +56,7 @@ function changeClass(percent: number | null | undefined): string {
             <div
                 v-if="icon"
                 class="flex size-11 shrink-0 items-center justify-center rounded-xl transition-transform group-hover:scale-105"
-                :class="iconClass ?? 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400'"
+                :class="iconClass ?? 'bg-shop-primary-500/10 text-shop-primary-600 dark:text-shop-primary-500'"
             >
                 <component :is="icon" class="size-5" />
             </div>

@@ -26,7 +26,7 @@ const totalOrders = computed(() =>
     >
         <div class="border-b border-border/40 px-6 py-5">
             <div class="flex items-center gap-2">
-                <div class="size-2 rounded-full bg-indigo-500" />
+                <div class="size-2 rounded-full bg-shop-primary-600" />
                 <h3 class="text-sm font-semibold text-foreground">
                     Revenue Trend
                 </h3>
@@ -47,7 +47,7 @@ const totalOrders = computed(() =>
                         class="relative flex w-full flex-1 items-end justify-center"
                     >
                         <div
-                            class="w-full max-w-4 rounded-t-md bg-indigo-500/70 transition-all duration-200 group-hover:bg-indigo-500"
+                            class="w-full max-w-4 rounded-t-md bg-shop-primary-600/70 transition-all duration-200 group-hover:bg-shop-primary-600"
                             :style="{
                                 height: `${Math.max((point.revenue / maxRevenue) * 100, point.revenue > 0 ? 4 : 0)}%`,
                             }"

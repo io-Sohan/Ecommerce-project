@@ -89,7 +89,7 @@ const emit = defineEmits<{
                 <button
                     v-if="item.inStock"
                     type="button"
-                    class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-shop-primary-600 to-purple-600 px-3 py-2.5 text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl focus:ring-2 focus:ring-shop-primary-600 focus:outline-none"
+                    class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 px-3 py-2.5 text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl focus:ring-2 focus:ring-shop-primary-600 focus:outline-none"
                     @click="emit('addToCart', item.id)"
                 >
                     <svg

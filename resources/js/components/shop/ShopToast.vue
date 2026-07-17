@@ -6,7 +6,7 @@ const { toastMessage, isToastVisible } = useShopUi();
 
 <template>
     <div
-        class="pointer-events-none fixed top-20 right-4 z-[80] flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-shop-primary-600 to-purple-600 px-5 py-3.5 text-sm font-bold text-white shadow-2xl shadow-shop-primary-600/25 transition-all duration-300"
+        class="pointer-events-none fixed top-20 right-4 z-[80] flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 px-5 py-3.5 text-sm font-bold text-white shadow-2xl shadow-shop-primary-600/25 transition-all duration-300"
         :class="
             isToastVisible
                 ? 'translate-y-0 opacity-100'

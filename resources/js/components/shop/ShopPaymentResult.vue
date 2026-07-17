@@ -118,7 +118,7 @@ function printInvoice(): void {
                 <div>
                     <div class="flex items-center gap-2.5">
                         <span
-                            class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-shop-primary-600 to-purple-600 text-white shadow print:h-7 print:w-7"
+                            class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-shop-primary-600 to-shop-primary-800 text-white shadow print:h-7 print:w-7"
                         >
                             <svg
                                 class="h-4 w-4"
@@ -283,7 +283,7 @@ function printInvoice(): void {
                     <table class="w-full text-sm print:text-xs">
                         <thead>
                             <tr
-                                class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white print:from-gray-700 print:to-gray-700"
+                                class="bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 text-white print:from-gray-700 print:to-gray-700"
                             >
                                 <th
                                     class="px-4 py-3 text-left text-[11px] font-bold tracking-wide uppercase print:px-3 print:py-2 print:text-[9px]"
@@ -467,7 +467,7 @@ function printInvoice(): void {
                 <Link
                     v-if="status !== 'success'"
                     :href="shop.checkout.url()"
-                    class="rounded-xl bg-gradient-to-r from-shop-primary-600 to-purple-600 px-6 py-2.5 text-center text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl"
+                    class="rounded-xl bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 px-6 py-2.5 text-center text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl"
                 >
                     {{
                         status === 'cancelled'
@@ -480,7 +480,7 @@ function printInvoice(): void {
                     class="rounded-xl px-6 py-2.5 text-center text-sm font-semibold transition"
                     :class="
                         status === 'success'
-                            ? 'bg-gradient-to-r from-shop-primary-600 to-purple-600 text-white shadow-lg shadow-shop-primary-600/25 hover:shadow-xl'
+                            ? 'bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 text-white shadow-lg shadow-shop-primary-600/25 hover:shadow-xl'
                             : 'bg-white text-gray-700 ring-1 ring-gray-200 hover:bg-gray-50'
                     "
                 >

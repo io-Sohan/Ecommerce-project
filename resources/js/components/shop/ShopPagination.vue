@@ -49,7 +49,7 @@ const pages = computed(() =>
             class="inline-flex h-10 min-w-[2.5rem] items-center justify-center rounded-xl px-3 text-sm font-semibold transition duration-200"
             :class="
                 pageNumber === page
-                    ? 'bg-gradient-to-r from-shop-primary-600 to-purple-600 text-white shadow-lg shadow-shop-primary-600/25'
+                    ? 'bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 text-white shadow-lg shadow-shop-primary-600/25'
                     : 'text-gray-600 hover:bg-shop-primary-50 hover:text-shop-primary-600'
             "
             @click="setPage(pageNumber)"

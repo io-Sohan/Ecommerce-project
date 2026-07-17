@@ -164,7 +164,7 @@ function handleClearCart(): void {
                 </p>
                 <Link
                     :href="shop.index()"
-                    class="mt-6 inline-block rounded-xl bg-gradient-to-r from-shop-primary-600 to-purple-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl"
+                    class="mt-6 inline-block rounded-xl bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl"
                 >
                     Start Shopping
                 </Link>

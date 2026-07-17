@@ -124,14 +124,14 @@ function breakdownPercent(count: number, total: number): number {
                 :value="overview.total_orders.toLocaleString()"
                 :change-percent="overview.orders_change_percent"
                 :icon="ShoppingCart"
-                icon-class="bg-blue-500/10 text-blue-600 dark:text-blue-400"
+                icon-class="bg-shop-primary-500/10 text-shop-primary-600 dark:text-shop-primary-500"
             />
             <DashboardStatCard
                 title="Avg. Order Value"
                 :value="formatTaka(overview.average_order_value)"
                 description="Based on paid orders"
                 :icon="TrendingUp"
-                icon-class="bg-violet-500/10 text-violet-600 dark:text-violet-400"
+                icon-class="bg-shop-primary-700/10 text-shop-primary-700 dark:text-shop-primary-600"
             />
             <DashboardStatCard
                 title="Customers"
@@ -182,7 +182,7 @@ function breakdownPercent(count: number, total: number): number {
                     <div class="flex items-center justify-between gap-3 px-6 py-4">
                         <div class="flex items-center gap-3">
                             <div
-                                class="flex size-9 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400"
+                                class="flex size-9 items-center justify-center rounded-lg bg-shop-primary-500/10 text-shop-primary-600 dark:text-shop-primary-500"
                             >
                                 <Package class="size-4" />
                             </div>
@@ -220,7 +220,7 @@ function breakdownPercent(count: number, total: number): number {
                     <div class="flex items-center justify-between gap-3 px-6 py-4">
                         <div class="flex items-center gap-3">
                             <div
-                                class="flex size-9 items-center justify-center rounded-lg bg-pink-500/10 text-pink-600 dark:text-pink-400"
+                                class="flex size-9 items-center justify-center rounded-lg bg-shop-primary-800/10 text-shop-primary-700 dark:text-shop-primary-600"
                             >
                                 <Heart class="size-4" />
                             </div>
@@ -260,7 +260,7 @@ function breakdownPercent(count: number, total: number): number {
                             class="h-1.5 overflow-hidden rounded-full bg-muted"
                         >
                             <div
-                                class="h-full rounded-full bg-indigo-500 transition-all"
+                                class="h-full rounded-full bg-shop-primary-600 transition-all"
                                 :style="{
                                     width: `${breakdownPercent(item.count, overview.total_orders)}%`,
                                 }"
@@ -318,7 +318,7 @@ function breakdownPercent(count: number, total: number): number {
                             class="h-1.5 overflow-hidden rounded-full bg-muted"
                         >
                             <div
-                                class="h-full rounded-full bg-violet-500 transition-all"
+                                class="h-full rounded-full bg-shop-primary-700 transition-all"
                                 :style="{
                                     width: `${breakdownPercent(item.count, overview.total_orders)}%`,
                                 }"
@@ -442,7 +442,7 @@ function breakdownPercent(count: number, total: number): number {
                         >
                             <div class="flex min-w-0 items-center gap-3">
                                 <span
-                                    class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-indigo-500/10 text-xs font-bold text-indigo-600 dark:text-indigo-400"
+                                    class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-shop-primary-500/10 text-xs font-bold text-shop-primary-600 dark:text-shop-primary-500"
                                 >
                                     {{ index + 1 }}
                                 </span>

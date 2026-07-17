@@ -85,7 +85,7 @@ function printInvoice(): void {
                 <div>
                     <div class="flex items-center gap-2.5">
                         <span
-                            class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-shop-primary-600 to-purple-600 text-white shadow print:h-7 print:w-7"
+                            class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-shop-primary-600 to-shop-primary-800 text-white shadow print:h-7 print:w-7"
                         >
                             <svg
                                 class="h-4 w-4"
@@ -252,7 +252,7 @@ function printInvoice(): void {
                 <div class="overflow-hidden rounded-xl border border-gray-200 print:rounded-none print:border-gray-300">
                     <table class="w-full text-sm print:text-xs">
                         <thead>
-                            <tr class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white print:from-gray-700 print:to-gray-700">
+                            <tr class="bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 text-white print:from-gray-700 print:to-gray-700">
                                 <th
                                     class="px-4 py-3 text-left text-[11px] font-bold tracking-wide uppercase print:px-3 print:py-2 print:text-[9px]"
                                 >
@@ -433,7 +433,7 @@ function printInvoice(): void {
             >
                 <Link
                     :href="shop.index()"
-                    class="rounded-xl bg-gradient-to-r from-shop-primary-600 to-purple-600 px-6 py-2.5 text-center text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl"
+                    class="rounded-xl bg-gradient-to-r from-shop-primary-600 to-shop-primary-800 px-6 py-2.5 text-center text-sm font-bold text-white shadow-lg shadow-shop-primary-600/25 transition hover:shadow-xl"
                 >
                     Continue Shopping
                 </Link>
