@@ -4,19 +4,38 @@ namespace App\Http\Controllers\Storefront;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Services\StripeCheckoutService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class PaymentResultController extends Controller
 {
+    public function __construct(
+        private readonly StripeCheckoutService $stripeCheckoutService,
+    ) {}
+
     /**
      * Display the payment success page.
+     * Verifies the Stripe session_id before marking the order as paid.
      */
     public function success(Request $request): Response
     {
+        $orderNumber = $request->query('order');
+        $sessionId = $request->query('session_id');
+
+        // If a Stripe session_id is present, verify and mark as paid immediately.
+        // (The webhook will also fire, but this covers same-tab redirects.)
+        if (filled($sessionId) && filled($orderNumber)) {
+            $order = Order::query()->where('order_number', $orderNumber)->first();
+
+            if ($order !== null && $order->payment_method === 'stripe' && $order->payment_status !== 'paid') {
+                $this->stripeCheckoutService->markAsPaidBySessionId($sessionId, $order);
+            }
+        }
+
         return Inertia::render('shop/PaymentSuccess', [
-            'order' => $this->buildFullOrderPayload($request->query('order')),
+            'order' => $this->buildFullOrderPayload($orderNumber),
         ]);
     }
 

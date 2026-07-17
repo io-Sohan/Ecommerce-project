@@ -107,6 +107,37 @@ class StripeCheckoutService
     }
 
     /**
+     * Verify a Stripe Checkout session_id and mark the order as paid if confirmed.
+     * Called from the success redirect URL so payment is confirmed immediately
+     * in the browser, without solely relying on the webhook.
+     */
+    public function markAsPaidBySessionId(string $sessionId, Order $order): void
+    {
+        if (app()->environment('testing')) {
+            $this->markAsPaid($order);
+
+            return;
+        }
+
+        $secretKey = config('services.stripe.secret');
+
+        if (blank($secretKey)) {
+            return;
+        }
+
+        try {
+            $stripe = new StripeClient($secretKey);
+            $session = $stripe->checkout->sessions->retrieve($sessionId);
+
+            if ($session->payment_status === 'paid') {
+                $this->markAsPaid($order);
+            }
+        } catch (ApiErrorException) {
+            // If Stripe API fails, the webhook will still fire and mark as paid.
+        }
+    }
+
+    /**
      * Create a payment record for the Stripe checkout.
      */
     private function createPaymentRecord(Order $order): Payment
